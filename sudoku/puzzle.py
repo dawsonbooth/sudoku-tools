@@ -7,19 +7,19 @@ from .strategies import strategies
 class Puzzle(Board):
     """
     The object can be constructed with a 1-dimensional board:
-    '''python
-    arr1D = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
-    puzzle = Puzzle(arr1D, 0)
-    '''
+    ```python
+    arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+    puzzle = Puzzle(arr_1d, 0)
+    ```
     ... or with a 2-dimensional board:
-    '''python
-    arr2D = [[1, 0, 3, 4],
+    ```python
+    arr_2d = [[1, 0, 3, 4],
             [0, 4, 1, 0],
             [0, 3, 0, 1],
             [4, 0, 2, 3]]
-    puzzle = Puzzle(arr2D, 0)
+    puzzle = Puzzle(arr_2d, 0)
 
-    '''
+    ```
     @param list An array-like object representing a Sudoku board
     @param blank The value used to represent a blank cell
     """
