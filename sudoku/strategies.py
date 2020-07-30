@@ -3,10 +3,10 @@ from typing import Iterator
 from .types import Index, PerfectSquare
 
 
-# /**
-#  * Also known as a [Solving Technique](http://sudopedia.enjoysudoku.com/Solving_Technique.html)
-#  */
 class Strategy:
+    """
+    Also known as a [Solving Technique](http://sudopedia.enjoysudoku.com/Solving_Technique.html)
+    """
     __slots__ = 'name', 'difficulty'
 
     name: str
@@ -19,10 +19,11 @@ class Strategy:
         pass
 
 
-# /**
-#  * Remove invalid candidates from each cell
-#  */
 class RefreshCandidates(Strategy):
+    """
+    Remove invalid candidates from each cell
+    """
+
     def __init__(self):
         super().__init__()
         self.difficulty = 0.0769
@@ -40,10 +41,11 @@ class RefreshCandidates(Strategy):
         return uses
 
 
-# /**
-#  * Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
-#  */
 class HiddenSubset(Strategy):
+    """
+    Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
+    """
+
     def __init__(self, size):
         super().__init__()
         self.name += f" - {size}"
@@ -76,24 +78,26 @@ class HiddenSubset(Strategy):
         return uses
 
 
-# /**
-#  * The [Hidden Single](http://sudopedia.enjoysudoku.com/Hidden_Single.html) strategy
-#  */
 class HiddenSingle(HiddenSubset):
+    """
+    The [Hidden Single](http://sudopedia.enjoysudoku.com/Hidden_Single.html) strategy
+    """
+
     def __init__(self):
         super().__init__(1)
 
 
-# /**
-#  * Alias for the [[HiddenSingle]] strategy
-#  */
+"""
+Alias for the [[HiddenSingle]] strategy
+"""
 PinnedDigit = HiddenSingle
 
 
-# /**
-#  * Apply the [Naked Subset](http://sudopedia.enjoysudoku.com/Naked_Subset.html) strategy
-#  */
 class NakedSubset(Strategy):
+    """
+    Apply the [Naked Subset](http://sudopedia.enjoysudoku.com/Naked_Subset.html) strategy
+    """
+
     def __init__(self, size):
         super().__init__()
         self.name += f" - {size}"
@@ -126,47 +130,57 @@ class NakedSubset(Strategy):
         return uses
 
 
-# /**
-#  * The [Naked Single](http://sudopedia.enjoysudoku.com/Naked_Single.html) strategy
-#  */
 class NakedSingle(NakedSubset):
+    """
+    The [Naked Single](http://sudopedia.enjoysudoku.com/Naked_Single.html) strategy
+    """
+
     def __init__(self):
         super().__init__(1)
 
 
-# /**
-#  * Alias for the [[NakedSingle]] strategy
-#  */
+"""
+Alias for the [[NakedSingle]] strategy
+"""
 ForcedDigit = NakedSingle
 
-# /**
-#  * Alias for the [[NakedSingle]] strategy
-#  */
+"""
+Alias for the [[NakedSingle]] strategy
+"""
 SoleCandidate = NakedSingle
 
-# /**
-#  * Apply the [Naked Double](http://sudopedia.enjoysudoku.com/Naked_Double.html) strategy
-#  */
+
 class NakedDouble(NakedSubset):
+    """
+    Apply the [Naked Double](http://sudopedia.enjoysudoku.com/Naked_Double.html) strategy
+    """
+
     def __init__(self):
         super().__init__(2)
 
-# /**
-#  * Apply the [Naked Triple](http://sudopedia.enjoysudoku.com/Naked_Triple.html) strategy
-#  */
+
 class NakedTriple(NakedSubset):
+    """
+    Apply the [Naked Triple](http://sudopedia.enjoysudoku.com/Naked_Triple.html) strategy
+    """
+
     def __init__(self):
         super().__init__(3)
 
-# /**
-#  * Apply the [Naked Quad](http://sudopedia.enjoysudoku.com/Naked_Quad.html) strategy
-#  */
+
 class NakedQuad(NakedSubset):
+    """
+    Apply the [Naked Quad](http://sudopedia.enjoysudoku.com/Naked_Quad.html) strategy
+    """
+
     def __init__(self):
         super().__init__(4)
 
 
 def strategies(order: PerfectSquare):
+    """
+    Generator for strategies from simple to complex with a given order
+    """
     yield RefreshCandidates
     yield HiddenSingle
     for s in range(2, order // 2):

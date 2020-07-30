@@ -93,10 +93,10 @@ class Board:
             if self.cells[i].isBlank():
                 yield i
 
-    # / **
-    # * A method to determine if the board has any conflicting cells
-    # * /
     def hasConflicts(self) -> bool:
+        """
+        A method to determine if the board has any conflicting cells
+        """
         for i, cell in enumerate(self.cells):
             if not cell.isBlank():
                 for p in self._peers(i):
@@ -104,26 +104,6 @@ class Board:
                     if not peer.isBlank() and cell.value() == peer.value():
                         return True
         return False
-
-    # / **
-    # * The object can be constructed with a 1-dimensional board:
-    # * """typescript
-    # * arr1D = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
-    # * puzzle = new Puzzle(arr1D, 0)
-    # * """
-    # * ... or with a 2-dimensional board:
-    # * """typescript
-    # * arr2D = [[1, 0, 3, 4],
-    #            *                [0, 4, 1, 0],
-    #            *                [0, 3, 0, 1],
-    #            *                [4, 0, 2, 3]]
-    # * puzzle = new Puzzle(arr2D, 0)
-    # * """
-    # *
-    # * @ param list An array-like object representing a Sudoku board
-    # * @ param blank The value used to represent a blank cell
-    # *
-    # * /
 
     def __init__(self, arr: ArrayLike, blank):
         arr = np.array(list(arr)).flatten()
@@ -146,12 +126,12 @@ class Board:
             self.cells[indices[i - 1]] = self.cells[indices[i]]
         self.cells[indices[-1]] = tmp
 
-    # / **
-    # * Reflect the Sudoku board horizontally or vertically
-    # *
-    # * @ param direction The direction in reflection
-    # * /
     def reflect(self, direction="horizontal"):
+        """
+        Reflect the Sudoku board horizontally or vertically
+
+        @ param direction The direction in reflection
+        """
         n = self.order
         x = n // 2
         y = n - 1
@@ -164,12 +144,12 @@ class Board:
                 for j in range(n):
                     self._shiftIndices(n * i + j, n * (y - i) + j)
 
-    # / **
-    # * Rotate the Sudoku board clockwise a given number in times.
-    # *
-    # * @ param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
-    # * /
     def rotate(self, rotations=1):
+        """
+        Rotate the Sudoku board clockwise a given number in times.
+
+        @ param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
+        """
         if not isinstance(rotations, int):
             rotations = round(rotations)
         if rotations % 4 == 0:
@@ -194,53 +174,48 @@ class Board:
 
             self.rotate(rotations - 1)
 
-    # / **
-    # * Switch the rows and columns in the Sudoku board
-    # * /
     def transpose(self):
+        """
+        Switch the rows and columns in the Sudoku board
+        """
         n = self.order
         for i in range(n):
             for j in range(i + 1, n):
                 self._shiftIndices(n * i + j, n * j + i)
 
-    # / **
-    # * Shuffle the board using rotations, reflections, and token-swapping
-    # * /
     def shuffle(self):
+        """
+        Shuffle the board using rotations, reflections, and token-swapping
+        """
         self.tokens.shuffle()
         for i in range(self.order // 2):
             self.reflect(random.choice(("horizontal", "vertical")))
             self.rotate(random.choice(range(4)))
 
-    # / **
-    # * A method for getting back the Sudoku board as a 1-dimensional array
-    # *
-    # * @ returns A 1D array in the Sudoku board
-    # * /
     def to1D(self):
+        """
+        A method for getting back the Sudoku board as a 1-dimensional array
+
+        @ returns A 1D array in the Sudoku board
+        """
         return [self.tokens[c.value()] for c in self.cells]
 
-    # / **
-    # * A method for getting back the Sudoku board as a 2-dimensional array
-    # *
-    # * @ returns A 2D array in the Sudoku board
-    # * /
     def to2D(self):
+        """
+        A method for getting back the Sudoku board as a 2-dimensional array
+
+        @ returns A 2D array in the Sudoku board
+        """
         return np.reshape(self.to1D(), (self.order, self.order)).tolist()
 
-    # / **
-    # * A method for getting back the Sudoku board as a string
-    # *
-    # * @ returns A string representation in the Sudoku board
-    # * /
     def toString(self) -> str:
+        """
+        A method for getting back the Sudoku board as a string
+
+        @ returns A string representation in the Sudoku board
+        """
         return "".join(self.to1D())
 
-    # / **
-    # * A method for getting back the Sudoku board as a formatted string
-    # *
-    # * @ returns A formatted string representing the Sudoku board
-    # * /
     def toFormattedString(self,
                           cellCorner="┼",
                           boxCorner="╬",
@@ -257,7 +232,11 @@ class Board:
                           cellVerticalBorder="│",
                           boxVerticalBorder="║",
                           blank=" "):
+        """
+        A method for getting back the Sudoku board as a formatted string
 
+        @ returns A formatted string representing the Sudoku board
+        """
         unit = int(self.order ** .5)
         tokenWidth = max([len(str(t)) for t in self.tokens])
 

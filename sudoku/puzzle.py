@@ -4,20 +4,36 @@ from .board import Board
 from .strategies import strategies
 
 
-# /**
-#  * @typeparam T The type of the value that may exist in a cell
-#  */
 class Puzzle(Board):
-    # /**
-    #  * Check whether puzzle is solved
-    #  */
+    """
+    The object can be constructed with a 1-dimensional board:
+    '''python
+    arr1D = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+    puzzle = Puzzle(arr1D, 0)
+    '''
+    ... or with a 2-dimensional board:
+    '''python
+    arr2D = [[1, 0, 3, 4],
+            [0, 4, 1, 0],
+            [0, 3, 0, 1],
+            [4, 0, 2, 3]]
+    puzzle = Puzzle(arr2D, 0)
+
+    '''
+    @param list An array-like object representing a Sudoku board
+    @param blank The value used to represent a blank cell
+    """
+
     def isSolved(self) -> bool:
+        """
+        Check whether puzzle is solved
+        """
         return not any(c.isBlank() for c in self.cells)
 
-    # /**
-    #  * Solve the puzzle with strategies
-    #  */
     def solve(self):
+        """
+        Solve the puzzle with strategies
+        """
         uses = dict()
         for strat in strategies(self.order):
             uses[strat.name] = 0
@@ -38,18 +54,18 @@ class Puzzle(Board):
 
         return uses
 
-    # /**
-    #  * Return whether the puzzle can be solved using strategies
-    #  */
     def hasSolution(self):
+        """
+        Return whether the puzzle can be solved using strategies
+        """
         return Puzzle(self.to1D(), self.tokens[0]).solve() is not None
 
-    # /**
-    #  * Calculate the difficulty of solving the puzzle
-    #  *
-    #  * @returns A difficulty score between 0 and 1
-    #  */
     def rate(self):
+        """
+        Calculate the difficulty of solving the puzzle
+
+        @returns A difficulty score between 0 and 1
+        """
         if self.isSolved():
             return 0
         uses = Puzzle(self.to1D(), self.tokens[0]).solve()
