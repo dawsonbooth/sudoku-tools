@@ -18,6 +18,7 @@ build: clean
 	@poetry build
 
 docs: build
+	@poetry run pydoc-markdown -p sudoku > docs/documentation.md
 	@poetry run mkdocs build --clean
 
 publish: clean build docs
