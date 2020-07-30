@@ -14,6 +14,12 @@ clean:
 	rm -rf build/ dist/ **/__pycache__/
 	rm -f *.spec **/*.pyc
 
+lint:
+	@poetry run pylint sudoku
+
+test:
+	@poetry run pytest sudoku/test
+
 build: clean
 	@poetry build
 
