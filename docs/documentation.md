@@ -1,3 +1,3 @@
 # Documentation
 
-::: MODULE_NAME
+::: sudoku

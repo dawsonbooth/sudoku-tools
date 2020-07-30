@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "PACKAGE_NAME"
+name = "sudoku-tools"
 version = "0.0.1"
 description = ""
 authors = ["Dawson Booth <pypi@dawsonbooth.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/dawsonbooth/PACKAGE_NAME"
-repository = "https://github.com/dawsonbooth/PACKAGE_NAME"
+homepage = "https://github.com/dawsonbooth/sudoku-tools"
+repository = "https://github.com/dawsonbooth/sudoku-tools"
 keywords = []
 classifiers = [
     "Environment :: Console",
@@ -18,14 +18,15 @@ include = [
     "LICENSE",
 ]
 packages = [
-    { include = "MODULE_NAME" },
+    { include = "sudoku" },
 ]
 
 [tool.poetry.scripts]
-PACKAGE_NAME = 'console:main'
+sudoku-tools = 'console:main'
 
 [tool.poetry.dependencies]
 python = "^3.6"
+numpy = "^1.19.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
