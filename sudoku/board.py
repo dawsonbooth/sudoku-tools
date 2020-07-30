@@ -93,7 +93,7 @@ class Board:
             if self.cells[i].isBlank():
                 yield i
 
-    def hasConflicts(self) -> bool:
+    def has_conflicts(self) -> bool:
         """
         A method to determine if the board has any conflicting cells
         """
@@ -120,7 +120,7 @@ class Board:
                 v = len(self.tokens) - 1
             self.cells[i] = Cell(self.order, v)
 
-    def _shiftIndices(self, *indices: List[Index]):
+    def _shift_indices(self, *indices: List[Index]):
         tmp = self.cells[indices[0]]
         for i in range(1, len(indices)):
             self.cells[indices[i - 1]] = self.cells[indices[i]]
@@ -138,11 +138,11 @@ class Board:
         if direction == "horizontal":
             for i in range(n):
                 for j in range(x):
-                    self._shiftIndices(n * i + j, n * i + (y - j))
+                    self._shift_indices(n * i + j, n * i + (y - j))
         else:
             for i in range(x):
                 for j in range(n):
-                    self._shiftIndices(n * i + j, n * (y - i) + j)
+                    self._shift_indices(n * i + j, n * (y - i) + j)
 
     def rotate(self, rotations=1):
         """
@@ -165,7 +165,7 @@ class Board:
             y = n - 1
             for i in range(x):
                 for j in range(i, y-i):
-                    self._shiftIndices(
+                    self._shift_indices(
                         n * i + j,
                         n * (y - j) + i,
                         n * (y - i) + y - j,
@@ -181,7 +181,7 @@ class Board:
         n = self.order
         for i in range(n):
             for j in range(i + 1, n):
-                self._shiftIndices(n * i + j, n * j + i)
+                self._shift_indices(n * i + j, n * j + i)
 
     def shuffle(self):
         """
@@ -192,7 +192,7 @@ class Board:
             self.reflect(random.choice(("horizontal", "vertical")))
             self.rotate(random.choice(range(4)))
 
-    def to1D(self):
+    def to_1D(self):
         """
         A method for getting back the Sudoku board as a 1-dimensional array
 
@@ -200,23 +200,23 @@ class Board:
         """
         return [self.tokens[c.value()] for c in self.cells]
 
-    def to2D(self):
+    def to_2D(self):
         """
         A method for getting back the Sudoku board as a 2-dimensional array
 
         @ returns A 2D array in the Sudoku board
         """
-        return np.reshape(self.to1D(), (self.order, self.order)).tolist()
+        return np.reshape(self.to_1D(), (self.order, self.order)).tolist()
 
-    def toString(self) -> str:
+    def to_string(self) -> str:
         """
         A method for getting back the Sudoku board as a string
 
         @ returns A string representation in the Sudoku board
         """
-        return "".join(self.to1D())
+        return "".join(self.to_1D())
 
-    def toFormattedString(self,
+    def to_formatted_string(self,
                           cellCorner="┼",
                           boxCorner="╬",
                           topLeftCorner="╔",

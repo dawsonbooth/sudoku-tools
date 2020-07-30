@@ -24,7 +24,7 @@ class Puzzle(Board):
     @param blank The value used to represent a blank cell
     """
 
-    def isSolved(self) -> bool:
+    def is_solved(self) -> bool:
         """
         Check whether puzzle is solved
         """
@@ -38,10 +38,10 @@ class Puzzle(Board):
         for strat in strategies(self.order):
             uses[strat.name] = 0
 
-        if self.hasConflicts():
+        if self.has_conflicts():
             return None
 
-        while not self.isSolved():
+        while not self.is_solved():
             changed = False
             for strat in strategies(self.order):
                 eliminations = strat(self)
@@ -54,11 +54,11 @@ class Puzzle(Board):
 
         return uses
 
-    def hasSolution(self):
+    def has_solution(self):
         """
         Return whether the puzzle can be solved using strategies
         """
-        return Puzzle(self.to1D(), self.tokens[0]).solve() is not None
+        return Puzzle(self.to_1D(), self.tokens[0]).solve() is not None
 
     def rate(self):
         """
@@ -66,9 +66,9 @@ class Puzzle(Board):
 
         @returns A difficulty score between 0 and 1
         """
-        if self.isSolved():
+        if self.is_solved():
             return 0
-        uses = Puzzle(self.to1D(), self.tokens[0]).solve()
+        uses = Puzzle(self.to_1D(), self.tokens[0]).solve()
         if not uses:
             return -1
 

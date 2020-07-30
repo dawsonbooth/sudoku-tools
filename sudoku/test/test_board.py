@@ -144,25 +144,25 @@ prompts = {
 def test_1d_array():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["1D"][order], ".")
-        assert(puzzle.to1D() == prompts["1D"][order], True)
+        assert(puzzle.to_1D() == prompts["1D"][order], True)
 
 
 def test_2d_array():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
-        assert(puzzle.to2D() == prompts["2D"][order], True)
+        assert(puzzle.to_2D() == prompts["2D"][order], True)
 
 
 def test_string():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["string"][order], ".")
-        assert(puzzle.toString() == prompts["string"][order], True)
+        assert(puzzle.to_string() == prompts["string"][order], True)
 
 
 def test_formatted_string():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["string"][order], ".")
-        assert(puzzle.toFormattedString().replace("\n", "") ==
+        assert(puzzle.to_formatted_string().replace("\n", "") ==
                prompts["formattedString"][order].replace("\n", ""), True)
 
 
@@ -170,35 +170,35 @@ def test_rotate():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.rotate(5)
-        assert(puzzle.to2D() == prompts["rotated"][order], True)
+        assert(puzzle.to_2D() == prompts["rotated"][order], True)
         puzzle.rotate(3)
-        assert(puzzle.to2D() == prompts["2D"][order], True)
+        assert(puzzle.to_2D() == prompts["2D"][order], True)
         puzzle.rotate(-2.1)
-        assert(puzzle.to1D() == prompts["1D"][order][::-1], True)
-        assert(puzzle.hasSolution(), True)
+        assert(puzzle.to_1D() == prompts["1D"][order][::-1], True)
+        assert(puzzle.has_solution(), True)
 
 
 def test_reflect():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.reflect()
-        assert(puzzle.to2D() == prompts["horizontal"][order], True)
+        assert(puzzle.to_2D() == prompts["horizontal"][order], True)
         puzzle.reflect()
         puzzle.reflect("vertical")
-        assert(puzzle.to2D() == prompts["vertical"][order], True)
-        assert(puzzle.hasSolution(), True)
+        assert(puzzle.to_2D() == prompts["vertical"][order], True)
+        assert(puzzle.has_solution(), True)
 
 
 def test_transpose():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.transpose()
-        assert(puzzle.to2D() == prompts["transpose"][order], True)
-        assert(puzzle.hasSolution(), True)
+        assert(puzzle.to_2D() == prompts["transpose"][order], True)
+        assert(puzzle.has_solution(), True)
 
 
 def test_shuffle():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.shuffle()
-        assert(puzzle.hasSolution(), True)
+        assert(puzzle.has_solution(), True)

@@ -7,6 +7,6 @@ if __name__ == "__main__":
 
         puzzle = Puzzle(board, ".")
 
-        print(f"Puzzle {i}:\n{puzzle.toFormattedString()}")
+        print(f"Puzzle {i}:\n{puzzle.to_formatted_string()}")
 
         print(f"Rating: {puzzle.rate()}")

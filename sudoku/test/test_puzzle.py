@@ -27,16 +27,16 @@ prompts = {
 def test_solve():
     for i in range(len(prompts["boards"])):
         puzzle = Puzzle(prompts["boards"][i], ".")
-        assert(puzzle.hasSolution(), True)
-        assert(puzzle.isSolved(), False)
+        assert(puzzle.has_solution(), True)
+        assert(puzzle.is_solved(), False)
         assert(puzzle.solve(), True)
-        assert(puzzle.isSolved(), True)
-        assert(puzzle.toString() == prompts["solutions"][i], True)
+        assert(puzzle.is_solved(), True)
+        assert(puzzle.to_string() == prompts["solutions"][i], True)
 
 
 def test_unsolvable():
     for i in range(len(prompts["unsolvable"])):
         puzzle = Puzzle(prompts["unsolvable"][i], ".")
-        assert(not puzzle.isSolved(), False)
-        assert(not puzzle.hasSolution(), False)
+        assert(not puzzle.is_solved(), False)
+        assert(not puzzle.has_solution(), False)
         assert(not puzzle.solve(), False)

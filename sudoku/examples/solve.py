@@ -7,8 +7,8 @@ if __name__ == "__main__":
 
         puzzle = Puzzle(board, ".")
 
-        print(f"Puzzle {i}:\n{puzzle.toFormattedString()}")
+        print(f"Puzzle {i}:\n{puzzle.to_formatted_string()}")
 
         puzzle.solve()
 
-        print(f"Solution:\n{puzzle.toFormattedString()}")
+        print(f"Solution:\n{puzzle.to_formatted_string()}")
