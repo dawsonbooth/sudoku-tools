@@ -20,12 +20,12 @@ lint:
 test:
 	@poetry run pytest sudoku/test
 
-build:
-	@poetry build
-
 docs:
 	@poetry run pydoc-markdown -p sudoku > docs/documentation.md
 	@poetry run mkdocs build --clean
+
+build:
+	@poetry build
 
 publish:
 	@mkdocs gh-deploy
