@@ -9,6 +9,8 @@ if __name__ == "__main__":
 
         print(f"Puzzle {i}:\n{puzzle.to_formatted_string()}")
 
-        puzzle.solve()
+        candidate_eliminations = puzzle.solve()
 
         print(f"Solution:\n{puzzle.to_formatted_string()}")
+
+        print(candidate_eliminations)

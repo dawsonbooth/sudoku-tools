@@ -1,4 +1,5 @@
 import math
+from collections import defaultdict
 
 from .board import Board
 from .strategies import strategies
@@ -28,31 +29,30 @@ class Puzzle(Board):
         """
         Check whether puzzle is solved
         """
-        return not any(c.isBlank() for c in self.cells)
+        return not any(c.is_blank() for c in self.cells)
 
     def solve(self):
         """
         Solve the puzzle with strategies
         """
-        uses = dict()
-        for strat in strategies(self.order):
-            uses[strat.name] = 0
+        candidate_eliminations = defaultdict(int)
 
         if self.has_conflicts():
             return None
 
         while not self.is_solved():
             changed = False
-            for strat in strategies(self.order):
-                eliminations = strat(self)
+            for strategy in strategies(self.order):
+                eliminations = strategy(self)
+
                 if eliminations > 0:
+                    candidate_eliminations[strategy.name] += eliminations
                     changed = True
                     break
-                uses[strat.name] += eliminations
             if not changed:
-                return None
+                return dict(candidate_eliminations)
 
-        return uses
+        return dict(candidate_eliminations)
 
     def has_solution(self):
         """
@@ -68,20 +68,19 @@ class Puzzle(Board):
         """
         if self.is_solved():
             return 0
-        uses = Puzzle(self.to_1D(), self.tokens[0]).solve()
-        if not uses:
+
+        candidate_eliminations = Puzzle(self.to_1D(), self.tokens[0]).solve()
+        if not candidate_eliminations:
             return -1
 
         difficulties = dict()
         for strat in strategies(self.order):
             difficulties[strat.name] = strat.difficulty
 
-        S = 0
+        difficulty = 0
         for strat in difficulties:
             ds = difficulties[strat]
-            us = uses[strat]
-            S += ds * us
+            cs = candidate_eliminations[strat]
+            difficulty += ds * cs
 
-        k = 1 / math.e ** 2
-        difficulty = (k * S) / (k * S + 1)
         return difficulty

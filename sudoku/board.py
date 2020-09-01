@@ -17,11 +17,12 @@ class Tokens(list):
 
 
 class Candidates(set):
-    def strip(self, v: Value):
+    def strip(self, *candidates):
         before = len(self)
         self.clear()
-        self.add(v)
-        return before - 1
+        for c in candidates:
+            self.add(c)
+        return before - len(self)
 
 
 class Cell:
@@ -35,7 +36,7 @@ class Cell:
     def value(self) -> Value:
         return next(iter(self.candidates), 0)
 
-    def isBlank(self) -> bool:
+    def is_blank(self) -> bool:
         return len(self.candidates) > 1
 
 
@@ -45,63 +46,81 @@ class Board:
     cells: List[Cell]
 
     def _box(self, index: Index):
-        boxWidth = self.order ** .5
+        boxWidth = int(self.order ** .5)
         row = index // self.order
         col = index % self.order
-        edgeRow = boxWidth * row // boxWidth
-        edgeCol = boxWidth * col // boxWidth
+        edgeRow = boxWidth * (row // boxWidth)
+        edgeCol = boxWidth * (col // boxWidth)
+
         for i in range(self.order):
             r = edgeRow + i // boxWidth
             c = edgeCol + (i % boxWidth)
             if not (r == row and c == col):
-                yield self.order * r + c
+                p = int(self.order * r + c)
+                yield p, self.cells[p]
 
     def _row(self, index: Index):
-        row = (index / self.order) >> 0
+        row = index // self.order
         col = index % self.order
+
         for i in range(self.order):
             if i != col:
-                yield self.order * row + i
+                p = int(self.order * row + i)
+                yield p, self.cells[p]
 
     def _col(self, index: Index):
         row = index // self.order
         col = index % self.order
+
         for i in range(self.order):
             if i != row:
-                yield self.order * i + col
+                p = int(self.order * i + col)
+                yield p, self.cells[p]
 
     def _peers(self, index: Index):
-        boxWidth = self.order ** .5
+        boxWidth = int(self.order ** .5)
         row = index // self.order
         col = index % self.order
-        edgeM = boxWidth * row // boxWidth
-        edgeN = boxWidth * col // boxWidth
+        edgeM = boxWidth * (row // boxWidth)
+        edgeN = boxWidth * (col // boxWidth)
+
+        peers = set()
+
         for i in range(self.order):
             r = edgeM + i // boxWidth
             c = edgeN + i % boxWidth
             if i != col:
-                yield int(self.order * row + i)
+                p = int(self.order * row + i)
+                if p not in peers:
+                    yield p, self.cells[p]
+                    peers.add(p)
             if i != row:
-                yield int(self.order * i + col)
+                p = int(self.order * i + col)
+                if p not in peers:
+                    yield p, self.cells[p]
+                    peers.add(p)
             if not (r == row and c == col):
-                yield int(self.order * r + c)
+                p = int(self.order * r + c)
+                if p not in peers:
+                    yield p, self.cells[p]
+                    peers.add(p)
 
     def _blank(self, indices=None):
         if indices is None:
-            indices = self.order ** 2
+            indices = range(self.order ** 2)
         for i in indices:
-            if self.cells[i].isBlank():
-                yield i
+            cell = self.cells[i]
+            if cell.is_blank():
+                yield i, cell
 
     def has_conflicts(self) -> bool:
         """
         A method to determine if the board has any conflicting cells
         """
         for i, cell in enumerate(self.cells):
-            if not cell.isBlank():
-                for p in self._peers(i):
-                    peer = self.cells[p]
-                    if not peer.isBlank() and cell.value() == peer.value():
+            if not cell.is_blank():
+                for _, peer in self._peers(i):
+                    if not peer.is_blank() and cell.value() == peer.value():
                         return True
         return False
 
@@ -217,21 +236,21 @@ class Board:
         return "".join(self.to_1D())
 
     def to_formatted_string(self,
-                          cellCorner="┼",
-                          boxCorner="╬",
-                          topLeftCorner="╔",
-                          topRightCorner="╗",
-                          bottomLeftCorner="╚",
-                          bottomRightCorner="╝",
-                          innerTopTowerCorner="╦",
-                          innerBottomTowerCorner="╩",
-                          innerLeftFloorCorner="╠",
-                          innerRightFloorCorner="╣",
-                          cellHorizontalBorder="─",
-                          boxHorizontalBorder="═",
-                          cellVerticalBorder="│",
-                          boxVerticalBorder="║",
-                          blank=" "):
+                            cellCorner="┼",
+                            boxCorner="╬",
+                            topLeftCorner="╔",
+                            topRightCorner="╗",
+                            bottomLeftCorner="╚",
+                            bottomRightCorner="╝",
+                            innerTopTowerCorner="╦",
+                            innerBottomTowerCorner="╩",
+                            innerLeftFloorCorner="╠",
+                            innerRightFloorCorner="╣",
+                            cellHorizontalBorder="─",
+                            boxHorizontalBorder="═",
+                            cellVerticalBorder="│",
+                            boxVerticalBorder="║",
+                            blank=" "):
         """
         A method for getting back the Sudoku board as a formatted string
 
@@ -258,7 +277,7 @@ class Board:
         formattedString = f"{topBorder}\n{boxVerticalBorder} "
         for i, c in enumerate(self.cells):
             v = c.value()
-            formattedString += f"{self.tokens[v] if not c.isBlank() else blank} "
+            formattedString += f"{self.tokens[v] if not c.is_blank() else blank} "
             if ((i + 1) % (self.order * unit) == 0):
                 if (i + 1 == len(self.cells)):
                     formattedString += f"{boxVerticalBorder}\n{bottomBorder}"

@@ -1,6 +1,11 @@
 from typing import Iterator
 
 from .types import Index, PerfectSquare
+import numpy as np
+
+import itertools
+
+# FIXME: Fix solving
 
 
 class Strategy:
@@ -12,11 +17,9 @@ class Strategy:
     name: str
     difficulty: float
 
-    def __init__(self):
-        self.name = self.__class__.__name__
-
-    def use(self, puzzle) -> int:
-        pass
+    def __init__(self, name=None, difficulty=None):
+        self.name = name if name is not None else self.__class__.__name__
+        self.difficulty = difficulty
 
 
 class RefreshCandidates(Strategy):
@@ -25,20 +28,17 @@ class RefreshCandidates(Strategy):
     """
 
     def __init__(self):
-        super().__init__()
-        self.difficulty = 0.0769
+        super().__init__(difficulty=0.0769)
 
-    def use(self, puzzle):
-        uses = 0
+    def __call__(self, puzzle):
+        candidate_eliminations = 0
         for i, cell in enumerate(puzzle.cells):
-            changed = False
-            for p in puzzle._peers(i):
-                peer = puzzle.cells[p]
-                if cell.isBlank() and not peer.isBlank():
-                    d = cell.candidates.delete(peer.value())
-                    changed = d if d else changed
-            uses += 1 if changed else 0
-        return uses
+            for _, peer in puzzle._peers(i):
+                if cell.is_blank() and not peer.is_blank():
+                    if peer.value() in cell.candidates:
+                        cell.candidates.remove(peer.value())
+                        candidate_eliminations += 1
+        return candidate_eliminations
 
 
 class HiddenSubset(Strategy):
@@ -46,36 +46,42 @@ class HiddenSubset(Strategy):
     Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
     """
 
+    __slots__: ('size',)
+
+    size: int
+
     def __init__(self, size):
-        super().__init__()
+        super().__init__(difficulty=0.0163 * size)
         self.name += f" - {size}"
-        self.difficulty = 0.0163 * size
+        self.size = size
 
-    def use(self, puzzle):
-        if size <= 0 or size >= puzzle.order:
+    def __call__(self, puzzle):
+        if self.size <= 0 or self.size >= puzzle.order:
             return 0
-        complement = puzzle.order - size
-        if complement < size:
-            return NakedSubset(complement).use(puzzle)
-        uses = 0
-        for b in puzzle._blank():
-            changed = False
-            for v in puzzle.cells[b].candidates.values():
-                if any(
-                    not any(puzzle.cells[p].candidates.has(v)
-                            for p in puzzle._box(b)),
-                    not any(puzzle.cells[p].candidates.has(v)
-                            for p in puzzle._row(b)),
-                    not any(puzzle.cells[p].candidates.has(v)
-                            for p in puzzle._col(b)),
-                ):
-                    s = puzzle.cells[b].candidates.strip(v) > 0
-                    changed = s if s else changed
-                    break
 
-            uses += 1 if changed else 0
+        complement_size = puzzle.order - self.size
+        if complement_size < self.size:
+            return NakedSubset(complement_size)(puzzle)
 
-        return uses
+        candidate_eliminations = 0
+        for b, blank in puzzle._blank():
+            if len(blank.candidates) >= self.size:
+                for house in [puzzle._row, puzzle._col, puzzle._box]:
+                    for hidden_candidates in itertools.combinations(blank.candidates, self.size):
+                        subset = set(
+                            p for p, peer in house(b) if (
+                                any((hc in peer.candidates)
+                                    for hc in hidden_candidates)
+                            )
+                        )
+                        subset.add(b)
+
+                        if len(subset) == self.size:
+                            for s in subset:
+                                candidate_eliminations += puzzle.cells[s].candidates.strip(
+                                    *hidden_candidates)
+
+        return candidate_eliminations
 
 
 class HiddenSingle(HiddenSubset):
@@ -97,37 +103,43 @@ class NakedSubset(Strategy):
     """
     Apply the [Naked Subset](http://sudopedia.enjoysudoku.com/Naked_Subset.html) strategy
     """
+    __slots__ = ("size",)
 
     def __init__(self, size):
-        super().__init__()
+        super().__init__(difficulty=0.0323 * size)
         self.name += f" - {size}"
-        self.difficulty = 0.0323 * size
+        self.size = size
 
-    def use(self, puzzle):
-        if size <= 1 or size >= puzzle.order:
+    def __call__(self, puzzle):
+        if self.size <= 0 or self.size >= puzzle.order:
             return 0
-        complement = puzzle.order - size
-        if complement < size:
-            return HiddenSubset(complement).use(puzzle)
-        uses = 0
-        for b in puzzle._blank():
-            changed = False
-            candidates = puzzle.cells[b].candidates
-            if candidates.size == size:
+
+        complement_size = puzzle.order - self.size
+        if complement_size < self.size:
+            return HiddenSubset(complement_size)(puzzle)
+
+        candidate_eliminations = 0
+        for b, blank in puzzle._blank():
+            if len(blank.candidates) == self.size:
                 for house in [puzzle._row, puzzle._col, puzzle._box]:
-                    peers = set([c for c in house(b)])
-                    for p in peers:
-                        if puzzle.cells[p].candidates.size <= size and all(candidates.has(pc) for pc in puzzle.cells[p].candidates):
-                            peers.delete(p)
-                    if peers.size == puzzle.order - size:
-                        for p in peers:
-                            for c in candidates:
-                                d = puzzle.cells[p].candidates.delete(c)
-                                changed = d if d else changed
+                    complement = set(
+                        p for p, peer in house(b) if (
+                            len(peer.candidates) > self.size
+                            or
+                            any(
+                                (pc not in blank.candidates)
+                                for pc in peer.candidates
+                            )
+                        )
+                    )
+                    if len(complement) == complement_size:
+                        for p in complement:
+                            for c in blank.candidates:
+                                if c in puzzle.cells[p].candidates:
+                                    puzzle.cells[p].candidates.remove(c)
+                                    candidate_eliminations += 1
 
-            uses += 1 if changed else 0
-
-        return uses
+        return candidate_eliminations
 
 
 class NakedSingle(NakedSubset):
@@ -181,7 +193,7 @@ def strategies(order: PerfectSquare):
     """
     Generator for strategies from simple to complex with a given order
     """
-    yield RefreshCandidates
-    yield HiddenSingle
-    for s in range(2, order // 2):
+    yield RefreshCandidates()
+    for s in range(1, order // 2):
         yield NakedSubset(s)
+        yield HiddenSubset(s)
