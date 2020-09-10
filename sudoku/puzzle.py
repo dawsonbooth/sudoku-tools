@@ -22,8 +22,10 @@ class Puzzle(Board):
     puzzle = Puzzle(arr_2d, 0)
 
     ```
-    @param list An array-like object representing a Sudoku board
-    @param blank The value used to represent a blank cell
+
+    Args:
+        list: An iterable representing a Sudoku board
+        blank: The value used to represent a blank cell
     """
 
     __slots__ = tuple()
@@ -67,7 +69,8 @@ class Puzzle(Board):
         """
         Calculate the difficulty of solving the puzzle
 
-        @returns A difficulty score between 0 and 1
+        Returns:
+            float: A difficulty score between 0 and 1
         """
         if self.is_solved():
             return 0

@@ -20,6 +20,10 @@ class Board()
 
 A method to determine if the board has any conflicting cells
 
+**Returns**:
+
+- `bool` - True if the board has conflicts, False otherwise
+
 <a name="sudoku.board.Board.reflect"></a>
 #### reflect
 
@@ -29,7 +33,9 @@ A method to determine if the board has any conflicting cells
 
 Reflect the Sudoku board horizontally or vertically
 
-@param direction The direction in reflection
+**Arguments**:
+
+- `direction` _str_ - The direction in reflection
 
 <a name="sudoku.board.Board.rotate"></a>
 #### rotate
@@ -40,7 +46,9 @@ Reflect the Sudoku board horizontally or vertically
 
 Rotate the Sudoku board clockwise a given number in times.
 
-@param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
+**Arguments**:
+
+- `rotations` _int_ - The number in clockwise rotations to be performed. This value may be negative and will be rounded.
 
 <a name="sudoku.board.Board.transpose"></a>
 #### transpose
@@ -69,7 +77,9 @@ Shuffle the board using rotations, reflections, and token-swapping
 
 A method for getting back the Sudoku board as a 1-dimensional array
 
-@returns A 1D array in the Sudoku board
+**Returns**:
+
+  A 1D array in the Sudoku board
 
 <a name="sudoku.board.Board.to_2D"></a>
 #### to\_2D
@@ -80,7 +90,9 @@ A method for getting back the Sudoku board as a 1-dimensional array
 
 A method for getting back the Sudoku board as a 2-dimensional array
 
-@returns A 2D array in the Sudoku board
+**Returns**:
+
+  A 2D array in the Sudoku board
 
 <a name="sudoku.board.Board.to_string"></a>
 #### to\_string
@@ -91,7 +103,9 @@ A method for getting back the Sudoku board as a 2-dimensional array
 
 A method for getting back the Sudoku board as a string
 
-@returns A string representation in the Sudoku board
+**Returns**:
+
+- `str` - A string representation in the Sudoku board
 
 <a name="sudoku.board.Board.to_formatted_string"></a>
 #### to\_formatted\_string
@@ -102,7 +116,9 @@ A method for getting back the Sudoku board as a string
 
 A method for getting back the Sudoku board as a formatted string
 
-@returns A formatted string representing the Sudoku board
+**Returns**:
+
+- `str` - A formatted string representing the Sudoku board
 
 <a name="sudoku.examples"></a>
 # sudoku.examples
@@ -130,11 +146,12 @@ class Puzzle(Board)
 ```
 
 The object can be constructed with a 1-dimensional board:
+... or with a 2-dimensional board:
+
 ```python
 arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
 puzzle = Puzzle(arr_1d, 0)
 ```
-... or with a 2-dimensional board:
 ```python
 arr_2d = [[1, 0, 3, 4],
         [0, 4, 1, 0],
@@ -143,8 +160,11 @@ arr_2d = [[1, 0, 3, 4],
 puzzle = Puzzle(arr_2d, 0)
 
 ```
-@param list An array-like object representing a Sudoku board
-@param blank The value used to represent a blank cell
+
+**Arguments**:
+
+- `list` - An iterable representing a Sudoku board
+- `blank` - The value used to represent a blank cell
 
 <a name="sudoku.puzzle.Puzzle.is_solved"></a>
 #### is\_solved
@@ -182,7 +202,9 @@ Return whether the puzzle can be solved using strategies
 
 Calculate the difficulty of solving the puzzle
 
-@returns A difficulty score between 0 and 1
+**Returns**:
+
+- `float` - A difficulty score between 0 and 1
 
 <a name="sudoku.strategies"></a>
 # sudoku.strategies

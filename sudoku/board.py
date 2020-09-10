@@ -126,6 +126,9 @@ class Board:
     def has_conflicts(self) -> bool:
         """
         A method to determine if the board has any conflicting cells
+
+        Returns:
+            bool: True if the board has conflicts, False otherwise
         """
         for i, cell in enumerate(self.cells):
             if not cell.is_blank():
@@ -159,7 +162,8 @@ class Board:
         """
         Reflect the Sudoku board horizontally or vertically
 
-        @param direction The direction in reflection
+        Args:
+            direction (str): The direction in reflection
         """
         n = self.order
         x = n // 2
@@ -177,7 +181,8 @@ class Board:
         """
         Rotate the Sudoku board clockwise a given number in times.
 
-        @param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
+        Args:
+            rotations (int): The number in clockwise rotations to be performed. This value may be negative and will be rounded.
         """
         if not isinstance(rotations, int):
             rotations = round(rotations)
@@ -225,7 +230,8 @@ class Board:
         """
         A method for getting back the Sudoku board as a 1-dimensional array
 
-        @returns A 1D array in the Sudoku board
+        Returns:
+            A 1D array in the Sudoku board
         """
         return [self.tokens[c.value()] for c in self.cells]
 
@@ -233,7 +239,8 @@ class Board:
         """
         A method for getting back the Sudoku board as a 2-dimensional array
 
-        @returns A 2D array in the Sudoku board
+        Returns:
+            A 2D array in the Sudoku board
         """
         return np.reshape(self.to_1D(), (self.order, self.order)).tolist()
 
@@ -241,7 +248,8 @@ class Board:
         """
         A method for getting back the Sudoku board as a string
 
-        @returns A string representation in the Sudoku board
+        Returns:
+            str: A string representation in the Sudoku board
         """
         return "".join(self.to_1D())
 
@@ -264,7 +272,8 @@ class Board:
         """
         A method for getting back the Sudoku board as a formatted string
 
-        @returns A formatted string representing the Sudoku board
+        Returns:
+            str: A formatted string representing the Sudoku board
         """
         unit = int(self.order ** .5)
         token_width = max([len(str(t)) for t in self.tokens])
