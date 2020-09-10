@@ -24,29 +24,29 @@ A method to determine if the board has any conflicting cells
 #### reflect
 
 ```python
- | reflect(direction="horizontal")
+ | reflect(direction="horizontal") -> None
 ```
 
 Reflect the Sudoku board horizontally or vertically
 
-@ param direction The direction in reflection
+@param direction The direction in reflection
 
 <a name="sudoku.board.Board.rotate"></a>
 #### rotate
 
 ```python
- | rotate(rotations=1)
+ | rotate(rotations=1) -> None
 ```
 
 Rotate the Sudoku board clockwise a given number in times.
 
-@ param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
+@param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
 
 <a name="sudoku.board.Board.transpose"></a>
 #### transpose
 
 ```python
- | transpose()
+ | transpose() -> None
 ```
 
 Switch the rows and columns in the Sudoku board
@@ -55,7 +55,7 @@ Switch the rows and columns in the Sudoku board
 #### shuffle
 
 ```python
- | shuffle()
+ | shuffle() -> None
 ```
 
 Shuffle the board using rotations, reflections, and token-swapping
@@ -69,7 +69,7 @@ Shuffle the board using rotations, reflections, and token-swapping
 
 A method for getting back the Sudoku board as a 1-dimensional array
 
-@ returns A 1D array in the Sudoku board
+@returns A 1D array in the Sudoku board
 
 <a name="sudoku.board.Board.to_2D"></a>
 #### to\_2D
@@ -80,7 +80,7 @@ A method for getting back the Sudoku board as a 1-dimensional array
 
 A method for getting back the Sudoku board as a 2-dimensional array
 
-@ returns A 2D array in the Sudoku board
+@returns A 2D array in the Sudoku board
 
 <a name="sudoku.board.Board.to_string"></a>
 #### to\_string
@@ -91,27 +91,98 @@ A method for getting back the Sudoku board as a 2-dimensional array
 
 A method for getting back the Sudoku board as a string
 
-@ returns A string representation in the Sudoku board
+@returns A string representation in the Sudoku board
 
 <a name="sudoku.board.Board.to_formatted_string"></a>
 #### to\_formatted\_string
 
 ```python
- | to_formatted_string(cellCorner="┼", boxCorner="╬", topLeftCorner="╔", topRightCorner="╗", bottomLeftCorner="╚", bottomRightCorner="╝", innerTopTowerCorner="╦", innerBottomTowerCorner="╩", innerLeftFloorCorner="╠", innerRightFloorCorner="╣", cellHorizontalBorder="─", boxHorizontalBorder="═", cellVerticalBorder="│", boxVerticalBorder="║", blank=" ")
+ | to_formatted_string(cell_corner="┼", box_corner="╬", top_left_corner="╔", top_right_corner="╗", bottom_left_corner="╚", bottom_right_corner="╝", inner_top_tower_corner="╦", inner_bottom_tower_corner="╩", inner_left_floor_corner="╠", inner_right_floor_corner="╣", cell_horizontal_border="─", box_horizontal_border="═", cell_vertical_border="│", box_vertical_border="║", blank=" ") -> str
 ```
 
 A method for getting back the Sudoku board as a formatted string
 
-@ returns A formatted string representing the Sudoku board
+@returns A formatted string representing the Sudoku board
 
-<a name="sudoku.test"></a>
-# sudoku.test
+<a name="sudoku.examples"></a>
+# sudoku.examples
 
-<a name="sudoku.test.test_board"></a>
-# sudoku.test.test\_board
+<a name="sudoku.examples.boards"></a>
+# sudoku.examples.boards
 
-<a name="sudoku.test.test_puzzle"></a>
-# sudoku.test.test\_puzzle
+<a name="sudoku.examples.rate"></a>
+# sudoku.examples.rate
+
+<a name="sudoku.examples.shuffle"></a>
+# sudoku.examples.shuffle
+
+<a name="sudoku.examples.solve"></a>
+# sudoku.examples.solve
+
+<a name="sudoku.puzzle"></a>
+# sudoku.puzzle
+
+<a name="sudoku.puzzle.Puzzle"></a>
+## Puzzle Objects
+
+```python
+class Puzzle(Board)
+```
+
+The object can be constructed with a 1-dimensional board:
+```python
+arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+puzzle = Puzzle(arr_1d, 0)
+```
+... or with a 2-dimensional board:
+```python
+arr_2d = [[1, 0, 3, 4],
+        [0, 4, 1, 0],
+        [0, 3, 0, 1],
+        [4, 0, 2, 3]]
+puzzle = Puzzle(arr_2d, 0)
+
+```
+@param list An array-like object representing a Sudoku board
+@param blank The value used to represent a blank cell
+
+<a name="sudoku.puzzle.Puzzle.is_solved"></a>
+#### is\_solved
+
+```python
+ | is_solved() -> bool
+```
+
+Check whether puzzle is solved
+
+<a name="sudoku.puzzle.Puzzle.solve"></a>
+#### solve
+
+```python
+ | solve() -> Dict[str, int]
+```
+
+Solve the puzzle with strategies
+
+<a name="sudoku.puzzle.Puzzle.has_solution"></a>
+#### has\_solution
+
+```python
+ | has_solution() -> bool
+```
+
+Return whether the puzzle can be solved using strategies
+
+<a name="sudoku.puzzle.Puzzle.rate"></a>
+#### rate
+
+```python
+ | rate() -> float
+```
+
+Calculate the difficulty of solving the puzzle
+
+@returns A difficulty score between 0 and 1
 
 <a name="sudoku.strategies"></a>
 # sudoku.strategies
@@ -211,86 +282,15 @@ strategies(order: PerfectSquare)
 
 Generator for strategies from simple to complex with a given order
 
-<a name="sudoku.puzzle"></a>
-# sudoku.puzzle
+<a name="sudoku.test"></a>
+# sudoku.test
 
-<a name="sudoku.puzzle.Puzzle"></a>
-## Puzzle Objects
+<a name="sudoku.test.test_board"></a>
+# sudoku.test.test\_board
 
-```python
-class Puzzle(Board)
-```
-
-The object can be constructed with a 1-dimensional board:
-```python
-arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
-puzzle = Puzzle(arr_1d, 0)
-```
-... or with a 2-dimensional board:
-```python
-arr_2d = [[1, 0, 3, 4],
-        [0, 4, 1, 0],
-        [0, 3, 0, 1],
-        [4, 0, 2, 3]]
-puzzle = Puzzle(arr_2d, 0)
-
-```
-@param list An array-like object representing a Sudoku board
-@param blank The value used to represent a blank cell
-
-<a name="sudoku.puzzle.Puzzle.is_solved"></a>
-#### is\_solved
-
-```python
- | is_solved() -> bool
-```
-
-Check whether puzzle is solved
-
-<a name="sudoku.puzzle.Puzzle.solve"></a>
-#### solve
-
-```python
- | solve()
-```
-
-Solve the puzzle with strategies
-
-<a name="sudoku.puzzle.Puzzle.has_solution"></a>
-#### has\_solution
-
-```python
- | has_solution()
-```
-
-Return whether the puzzle can be solved using strategies
-
-<a name="sudoku.puzzle.Puzzle.rate"></a>
-#### rate
-
-```python
- | rate()
-```
-
-Calculate the difficulty of solving the puzzle
-
-@returns A difficulty score between 0 and 1
+<a name="sudoku.test.test_puzzle"></a>
+# sudoku.test.test\_puzzle
 
 <a name="sudoku.types"></a>
 # sudoku.types
-
-<a name="sudoku.examples"></a>
-# sudoku.examples
-
-<a name="sudoku.examples.rate"></a>
-# sudoku.examples.rate
-
-<a name="sudoku.examples.shuffle"></a>
-# sudoku.examples.shuffle
-
-<a name="sudoku.examples.solve"></a>
-# sudoku.examples.solve
-
-<a name="sudoku.examples.boards"></a>
-# sudoku.examples.boards
 

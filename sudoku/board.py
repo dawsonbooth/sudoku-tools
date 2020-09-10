@@ -7,6 +7,8 @@ from .types import ArrayLike, Index, PerfectSquare, Value
 
 
 class Tokens(list):
+    __slots__ = tuple()
+
     def swap(self, i: Value, j: Value):
         self[i], self[j] = self[j], self[i]
 
@@ -17,6 +19,8 @@ class Tokens(list):
 
 
 class Candidates(set):
+    __slots__ = tuple()
+
     def strip(self, *candidates):
         before = len(self)
         self.clear()
@@ -26,6 +30,8 @@ class Candidates(set):
 
 
 class Cell:
+    __slots__ = 'candidates',
+
     candidates: Candidates
 
     def __init__(self, order: PerfectSquare, value: Value):
@@ -43,6 +49,8 @@ class Cell:
 
 
 class Board:
+    __slots__ = 'order', 'tokens', 'cells'
+
     order: PerfectSquare
     tokens: Tokens
     cells: List[Cell]
@@ -141,13 +149,13 @@ class Board:
                 v = len(self.tokens) - 1
             self.cells[i] = Cell(self.order, v)
 
-    def _shift_indices(self, *indices: List[Index]):
+    def _shift_indices(self, *indices: List[Index]) -> None:
         tmp = self.cells[indices[0]]
         for i in range(1, len(indices)):
             self.cells[indices[i - 1]] = self.cells[indices[i]]
         self.cells[indices[-1]] = tmp
 
-    def reflect(self, direction="horizontal"):
+    def reflect(self, direction="horizontal") -> None:
         """
         Reflect the Sudoku board horizontally or vertically
 
@@ -165,7 +173,7 @@ class Board:
                 for j in range(n):
                     self._shift_indices(n * i + j, n * (y - i) + j)
 
-    def rotate(self, rotations=1):
+    def rotate(self, rotations=1) -> None:
         """
         Rotate the Sudoku board clockwise a given number in times.
 
@@ -195,7 +203,7 @@ class Board:
 
             self.rotate(rotations - 1)
 
-    def transpose(self):
+    def transpose(self) -> None:
         """
         Switch the rows and columns in the Sudoku board
         """
@@ -204,12 +212,12 @@ class Board:
             for j in range(i + 1, n):
                 self._shift_indices(n * i + j, n * j + i)
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         """
         Shuffle the board using rotations, reflections, and token-swapping
         """
         self.tokens.shuffle()
-        for i in range(self.order // 2):
+        for _ in range(self.order // 2):
             self.reflect(random.choice(("horizontal", "vertical")))
             self.rotate(random.choice(range(4)))
 
@@ -238,58 +246,58 @@ class Board:
         return "".join(self.to_1D())
 
     def to_formatted_string(self,
-                            cellCorner="┼",
-                            boxCorner="╬",
-                            topLeftCorner="╔",
-                            topRightCorner="╗",
-                            bottomLeftCorner="╚",
-                            bottomRightCorner="╝",
-                            innerTopTowerCorner="╦",
-                            innerBottomTowerCorner="╩",
-                            innerLeftFloorCorner="╠",
-                            innerRightFloorCorner="╣",
-                            cellHorizontalBorder="─",
-                            boxHorizontalBorder="═",
-                            cellVerticalBorder="│",
-                            boxVerticalBorder="║",
-                            blank=" "):
+                            cell_corner="┼",
+                            box_corner="╬",
+                            top_left_corner="╔",
+                            top_right_corner="╗",
+                            bottom_left_corner="╚",
+                            bottom_right_corner="╝",
+                            inner_top_tower_corner="╦",
+                            inner_bottom_tower_corner="╩",
+                            inner_left_floor_corner="╠",
+                            inner_right_floor_corner="╣",
+                            cell_horizontal_border="─",
+                            box_horizontal_border="═",
+                            cell_vertical_border="│",
+                            box_vertical_border="║",
+                            blank=" ") -> str:
         """
         A method for getting back the Sudoku board as a formatted string
 
         @returns A formatted string representing the Sudoku board
         """
         unit = int(self.order ** .5)
-        tokenWidth = max([len(str(t)) for t in self.tokens])
+        token_width = max([len(str(t)) for t in self.tokens])
 
-        cellWidth = tokenWidth + 2
-        boxWidth = unit * (cellWidth + 1) - 1
+        cell_width = token_width + 2
+        box_width = unit * (cell_width + 1) - 1
 
-        topBorder = topLeftCorner + boxHorizontalBorder * \
-            (boxWidth) + (innerTopTowerCorner + boxHorizontalBorder *
-                          (boxWidth)) * (unit - 1) + topRightCorner
-        bottomBorder = bottomLeftCorner + boxHorizontalBorder * \
-            (boxWidth) + (innerBottomTowerCorner + boxHorizontalBorder *
-                          (boxWidth)) * (unit - 1) + bottomRightCorner
-        floorBorder = innerLeftFloorCorner + boxHorizontalBorder * \
-            (boxWidth) + (boxCorner + boxHorizontalBorder *
-                          (boxWidth)) * (unit - 1) + innerRightFloorCorner
-        barBorder = (boxVerticalBorder + cellHorizontalBorder * (cellWidth) + (cellCorner +
-                                                                               cellHorizontalBorder * (cellWidth)) * (unit - 1)) * (unit) + boxVerticalBorder
+        top_border = top_left_corner + box_horizontal_border * \
+            (box_width) + (inner_top_tower_corner + box_horizontal_border *
+                           (box_width)) * (unit - 1) + top_right_corner
+        bottom_border = bottom_left_corner + box_horizontal_border * \
+            (box_width) + (inner_bottom_tower_corner + box_horizontal_border *
+                           (box_width)) * (unit - 1) + bottom_right_corner
+        floor_border = inner_left_floor_corner + box_horizontal_border * \
+            (box_width) + (box_corner + box_horizontal_border *
+                           (box_width)) * (unit - 1) + inner_right_floor_corner
+        bar_border = (box_vertical_border + cell_horizontal_border * (cell_width) + (cell_corner +
+                                                                                     cell_horizontal_border * (cell_width)) * (unit - 1)) * (unit) + box_vertical_border
 
-        formattedString = f"{topBorder}\n{boxVerticalBorder} "
+        formatted_str = f"{top_border}\n{box_vertical_border} "
         for i, c in enumerate(self.cells):
             v = c.value()
-            formattedString += f"{self.tokens[v] if not c.is_blank() else blank} "
-            if ((i + 1) % (self.order * unit) == 0):
-                if (i + 1 == len(self.cells)):
-                    formattedString += f"{boxVerticalBorder}\n{bottomBorder}"
+            formatted_str += f"{self.tokens[v] if not c.is_blank() else blank} "
+            if (i + 1) % (self.order * unit) == 0:
+                if i + 1 == len(self.cells):
+                    formatted_str += f"{box_vertical_border}\n{bottom_border}"
                 else:
-                    formattedString += f"{boxVerticalBorder}\n{floorBorder}\n{boxVerticalBorder} "
-            elif ((i + 1) % self.order == 0):
-                formattedString += f"{boxVerticalBorder}\n{barBorder}\n{boxVerticalBorder} "
-            elif ((i + 1) % unit == 0):
-                formattedString += f"{boxVerticalBorder} "
+                    formatted_str += f"{box_vertical_border}\n{floor_border}\n{box_vertical_border} "
+            elif (i + 1) % self.order == 0:
+                formatted_str += f"{box_vertical_border}\n{bar_border}\n{box_vertical_border} "
+            elif (i + 1) % unit == 0:
+                formatted_str += f"{box_vertical_border} "
             else:
-                formattedString += f"{cellVerticalBorder} "
+                formatted_str += f"{cell_vertical_border} "
 
-        return formattedString
+        return formatted_str

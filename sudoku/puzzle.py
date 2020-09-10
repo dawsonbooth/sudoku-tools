@@ -1,5 +1,6 @@
 import math
 from collections import defaultdict
+from typing import Dict
 
 from .board import Board
 from .strategies import strategies
@@ -25,13 +26,15 @@ class Puzzle(Board):
     @param blank The value used to represent a blank cell
     """
 
+    __slots__ = tuple()
+
     def is_solved(self) -> bool:
         """
         Check whether puzzle is solved
         """
         return not any(c.is_blank() for c in self.cells)
 
-    def solve(self):
+    def solve(self) -> Dict[str, int]:
         """
         Solve the puzzle with strategies
         """
@@ -54,13 +57,13 @@ class Puzzle(Board):
 
         return dict(candidate_eliminations)
 
-    def has_solution(self):
+    def has_solution(self) -> bool:
         """
         Return whether the puzzle can be solved using strategies
         """
         return bool(Puzzle(self.to_string(), self.tokens[0]).solve())
 
-    def rate(self):
+    def rate(self) -> float:
         """
         Calculate the difficulty of solving the puzzle
 
@@ -78,9 +81,9 @@ class Puzzle(Board):
             difficulties[strat.name] = strat.difficulty
 
         difficulty = 0
-        for strat in difficulties:
+        for strat in candidate_eliminations.keys():
             ds = difficulties[strat]
             cs = candidate_eliminations[strat]
-            difficulty += ds * cs
+            difficulty += ds * (cs / self.order ** 2)
 
         return difficulty
