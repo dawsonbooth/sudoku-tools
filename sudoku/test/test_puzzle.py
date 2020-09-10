@@ -11,11 +11,11 @@ prompts = {
         "72..96..3...2.5....8...4.2........6.1.65.38.7.4........3.8...9....7.2...2..43..18"
     ],
     "solutions": [
-        "1234341223414123",
-        "123456789456789123789123456234567891567891234891234567345678912678912345912345678",
-        "672145398145983672389762451263574819958621743714398526597236184426817935831459267",
-        "735164928426978315198532674249381756387256149561749832852617493914823567673495281",
-        "725196483463285971981374526372948165196523847548617239634851792819762354257439618"
+        '1234341223414123',
+        '123456789456789123789123456234567891567891234891234567345678912678912345912345678',
+        '672145398145983672389762451263574819958621743714398526597236184426817935831459267',
+        '735164928426978315198532674249381756387256149561749832852617493914823567673495281',
+        '725196483463285971981374526372948165196523847548617239634851792819762354257439618'
     ],
     "unsolvable": [
         "12341...2341....",
@@ -27,16 +27,16 @@ prompts = {
 def test_solve():
     for i in range(len(prompts["boards"])):
         puzzle = Puzzle(prompts["boards"][i], ".")
-        assert(puzzle.has_solution(), True)
-        assert(puzzle.is_solved(), False)
-        assert(puzzle.solve(), True)
-        assert(puzzle.is_solved(), True)
-        assert(puzzle.to_string() == prompts["solutions"][i], True)
+        assert puzzle.has_solution()
+        assert not puzzle.is_solved()
+        assert puzzle.solve()
+        assert puzzle.is_solved()
+        assert puzzle.to_string() == prompts["solutions"][i]
 
 
 def test_unsolvable():
     for i in range(len(prompts["unsolvable"])):
         puzzle = Puzzle(prompts["unsolvable"][i], ".")
-        assert(not puzzle.is_solved(), False)
-        assert(not puzzle.has_solution(), False)
-        assert(not puzzle.solve(), False)
+        assert not puzzle.is_solved()
+        assert not puzzle.has_solution()
+        assert not bool(puzzle.solve())

@@ -34,7 +34,9 @@ class Cell:
             self.candidates.strip(value)
 
     def value(self) -> Value:
-        return next(iter(self.candidates), 0)
+        if len(self.candidates) > 1:
+            return 0
+        return next(iter(self.candidates))
 
     def is_blank(self) -> bool:
         return len(self.candidates) > 1
@@ -149,7 +151,7 @@ class Board:
         """
         Reflect the Sudoku board horizontally or vertically
 
-        @ param direction The direction in reflection
+        @param direction The direction in reflection
         """
         n = self.order
         x = n // 2
@@ -167,7 +169,7 @@ class Board:
         """
         Rotate the Sudoku board clockwise a given number in times.
 
-        @ param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
+        @param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.
         """
         if not isinstance(rotations, int):
             rotations = round(rotations)
@@ -215,7 +217,7 @@ class Board:
         """
         A method for getting back the Sudoku board as a 1-dimensional array
 
-        @ returns A 1D array in the Sudoku board
+        @returns A 1D array in the Sudoku board
         """
         return [self.tokens[c.value()] for c in self.cells]
 
@@ -223,7 +225,7 @@ class Board:
         """
         A method for getting back the Sudoku board as a 2-dimensional array
 
-        @ returns A 2D array in the Sudoku board
+        @returns A 2D array in the Sudoku board
         """
         return np.reshape(self.to_1D(), (self.order, self.order)).tolist()
 
@@ -231,7 +233,7 @@ class Board:
         """
         A method for getting back the Sudoku board as a string
 
-        @ returns A string representation in the Sudoku board
+        @returns A string representation in the Sudoku board
         """
         return "".join(self.to_1D())
 
@@ -254,7 +256,7 @@ class Board:
         """
         A method for getting back the Sudoku board as a formatted string
 
-        @ returns A formatted string representing the Sudoku board
+        @returns A formatted string representing the Sudoku board
         """
         unit = int(self.order ** .5)
         tokenWidth = max([len(str(t)) for t in self.tokens])

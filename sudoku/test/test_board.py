@@ -10,37 +10,37 @@ prompts = {
     },
     "formattedString": {
         "4": """╔═══════╦═══════╗
-          ║ 1 │   ║ 3 │ 4 ║
-          ║───┼───║───┼───║
-          ║   │ 4 ║ 1 │   ║
-          ╠═══════╬═══════╣
-          ║   │ 3 ║   │ 1 ║
-          ║───┼───║───┼───║
-          ║ 4 │   ║ 2 │ 3 ║
-          ╚═══════╩═══════╝""",
+                ║ 1 │   ║ 3 │ 4 ║
+                ║───┼───║───┼───║
+                ║   │ 4 ║ 1 │   ║
+                ╠═══════╬═══════╣
+                ║   │ 3 ║   │ 1 ║
+                ║───┼───║───┼───║
+                ║ 4 │   ║ 2 │ 3 ║
+                ╚═══════╩═══════╝""".split(),
         "9": """╔═══════════╦═══════════╦═══════════╗
-          ║   │ 2 │ 3 ║ 4 │   │ 6 ║ 7 │ 8 │ 9 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 5 │ 6 ║ 7 │   │ 9 ║ 1 │ 2 │ 3 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 8 │ 9 ║ 1 │   │ 3 ║ 4 │ 5 │ 6 ║
-          ╠═══════════╬═══════════╬═══════════╣
-          ║   │ 3 │ 4 ║ 5 │   │ 7 ║ 8 │ 9 │ 1 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 6 │ 7 ║ 8 │   │ 1 ║ 2 │ 3 │ 4 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 9 │ 1 ║ 2 │   │ 4 ║ 5 │ 6 │ 7 ║
-          ╠═══════════╬═══════════╬═══════════╣
-          ║   │ 4 │ 5 ║ 6 │   │ 8 ║ 9 │ 1 │ 2 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 7 │ 8 ║ 9 │   │ 2 ║ 3 │ 4 │ 5 ║
-          ║───┼───┼───║───┼───┼───║───┼───┼───║
-          ║   │ 1 │ 2 ║ 3 │   │ 5 ║ 6 │ 7 │ 8 ║
-          ╚═══════════╩═══════════╩═══════════╝"""
+                ║   │ 2 │ 3 ║ 4 │   │ 6 ║ 7 │ 8 │ 9 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 5 │ 6 ║ 7 │   │ 9 ║ 1 │ 2 │ 3 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 8 │ 9 ║ 1 │   │ 3 ║ 4 │ 5 │ 6 ║
+                ╠═══════════╬═══════════╬═══════════╣
+                ║   │ 3 │ 4 ║ 5 │   │ 7 ║ 8 │ 9 │ 1 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 6 │ 7 ║ 8 │   │ 1 ║ 2 │ 3 │ 4 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 9 │ 1 ║ 2 │   │ 4 ║ 5 │ 6 │ 7 ║
+                ╠═══════════╬═══════════╬═══════════╣
+                ║   │ 4 │ 5 ║ 6 │   │ 8 ║ 9 │ 1 │ 2 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 7 │ 8 ║ 9 │   │ 2 ║ 3 │ 4 │ 5 ║
+                ║───┼───┼───║───┼───┼───║───┼───┼───║
+                ║   │ 1 │ 2 ║ 3 │   │ 5 ║ 6 │ 7 │ 8 ║
+                ╚═══════════╩═══════════╩═══════════╝""".split()
     },
     "1D": {
-        "4": "1.34.41..3.14.23",
-        "9": ".234.6789.567.9123.891.3456.345.7891.678.1234.912.4567.456.8912.789.2345.123.5678"
+        "4": list("1.34.41..3.14.23"),
+        "9": list(".234.6789.567.9123.891.3456.345.7891.678.1234.912.4567.456.8912.789.2345.123.5678")
 
     },
     "2D": {
@@ -144,61 +144,61 @@ prompts = {
 def test_1d_array():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["1D"][order], ".")
-        assert(puzzle.to_1D() == prompts["1D"][order], True)
+        assert puzzle.to_1D() == prompts["1D"][order]
 
 
 def test_2d_array():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
-        assert(puzzle.to_2D() == prompts["2D"][order], True)
+        assert puzzle.to_2D() == prompts["2D"][order]
 
 
 def test_string():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["string"][order], ".")
-        assert(puzzle.to_string() == prompts["string"][order], True)
+        assert puzzle.to_string() == prompts["string"][order]
 
 
 def test_formatted_string():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["string"][order], ".")
-        assert(puzzle.to_formatted_string().replace("\n", "") ==
-               prompts["formattedString"][order].replace("\n", ""), True)
+        assert puzzle.to_formatted_string().split(
+        ) == prompts["formattedString"][order]
 
 
 def test_rotate():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.rotate(5)
-        assert(puzzle.to_2D() == prompts["rotated"][order], True)
+        assert puzzle.to_2D() == prompts["rotated"][order]
         puzzle.rotate(3)
-        assert(puzzle.to_2D() == prompts["2D"][order], True)
+        assert puzzle.to_2D() == prompts["2D"][order]
         puzzle.rotate(-2.1)
-        assert(puzzle.to_1D() == prompts["1D"][order][::-1], True)
-        assert(puzzle.has_solution(), True)
+        assert puzzle.to_1D() == prompts["1D"][order][::-1]
+        assert puzzle.has_solution()
 
 
 def test_reflect():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.reflect()
-        assert(puzzle.to_2D() == prompts["horizontal"][order], True)
+        assert puzzle.to_2D() == prompts["horizontal"][order]
         puzzle.reflect()
         puzzle.reflect("vertical")
-        assert(puzzle.to_2D() == prompts["vertical"][order], True)
-        assert(puzzle.has_solution(), True)
+        assert puzzle.to_2D() == prompts["vertical"][order]
+        assert puzzle.has_solution()
 
 
 def test_transpose():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.transpose()
-        assert(puzzle.to_2D() == prompts["transpose"][order], True)
-        assert(puzzle.has_solution(), True)
+        assert puzzle.to_2D() == prompts["transpose"][order]
+        assert puzzle.has_solution()
 
 
 def test_shuffle():
     for order in ("4", "9"):
         puzzle = Puzzle(prompts["2D"][order], ".")
         puzzle.shuffle()
-        assert(puzzle.has_solution(), True)
+        assert puzzle.has_solution()

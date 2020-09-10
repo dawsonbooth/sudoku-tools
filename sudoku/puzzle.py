@@ -58,7 +58,7 @@ class Puzzle(Board):
         """
         Return whether the puzzle can be solved using strategies
         """
-        return Puzzle(self.to_1D(), self.tokens[0]).solve() is not None
+        return bool(Puzzle(self.to_string(), self.tokens[0]).solve())
 
     def rate(self):
         """
