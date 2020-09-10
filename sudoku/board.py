@@ -29,7 +29,7 @@ class Candidates(set):
         return before - len(self)
 
 
-class Cell:
+class Cell: # TODO: Consider merging candidates in here with the help of decorators
     __slots__ = 'candidates',
 
     candidates: Candidates
@@ -37,18 +37,24 @@ class Cell:
     def __init__(self, order: PerfectSquare, value: Value):
         self.candidates = Candidates(i + 1 for i in range(order))
         if value != 0:
-            self.candidates.strip(value)
+            self.value = value
 
+    @property
     def value(self) -> Value:
         if len(self.candidates) > 1:
             return 0
         return next(iter(self.candidates))
 
+    @value.setter
+    def value(self, value):
+        if value != 0:
+            self.candidates.strip(value)
+
     def is_blank(self) -> bool:
         return len(self.candidates) > 1
 
 
-class Board:
+class Board: # TODO: Consider nesting above classes -- would make accessing order, tokens, and cells less expensive
     __slots__ = 'order', 'tokens', 'cells'
 
     order: PerfectSquare
@@ -133,7 +139,7 @@ class Board:
         for i, cell in enumerate(self.cells):
             if not cell.is_blank():
                 for _, peer in self._peers(i):
-                    if not peer.is_blank() and cell.value() == peer.value():
+                    if not peer.is_blank() and cell.value == peer.value:
                         return True
         return False
 
@@ -233,7 +239,7 @@ class Board:
         Returns:
             A 1D array in the Sudoku board
         """
-        return [self.tokens[c.value()] for c in self.cells]
+        return [self.tokens[c.value] for c in self.cells]
 
     def to_2D(self):
         """
@@ -295,7 +301,7 @@ class Board:
 
         formatted_str = f"{top_border}\n{box_vertical_border} "
         for i, c in enumerate(self.cells):
-            v = c.value()
+            v = c.value
             formatted_str += f"{self.tokens[v] if not c.is_blank() else blank} "
             if (i + 1) % (self.order * unit) == 0:
                 if i + 1 == len(self.cells):

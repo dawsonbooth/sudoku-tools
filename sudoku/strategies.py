@@ -35,8 +35,8 @@ class RefreshCandidates(Strategy):
         for i, cell in enumerate(puzzle.cells):
             for _, peer in puzzle._peers(i):
                 if cell.is_blank() and not peer.is_blank():
-                    if peer.value() in cell.candidates:
-                        cell.candidates.remove(peer.value())
+                    if peer.value in cell.candidates:
+                        cell.candidates.remove(peer.value)
                         candidate_eliminations += 1
         return candidate_eliminations
 
