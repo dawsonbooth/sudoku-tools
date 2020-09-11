@@ -5,8 +5,6 @@ import numpy as np
 
 import itertools
 
-# FIXME: Fix solving
-
 
 class Strategy:
     """
@@ -78,7 +76,7 @@ class HiddenSubset(Strategy):
 
                         if len(subset) == self.size:
                             for s in subset:
-                                candidate_eliminations += puzzle.cells[s].candidates.strip(
+                                candidate_eliminations += puzzle.cells[s].strip(
                                     *hidden_candidates)
 
         return candidate_eliminations
