@@ -1,60 +1,65 @@
+from __future__ import annotations
+
 import random
-from typing import List
+from typing import Iterable, List, Set
 
 import numpy as np
 
-from .types import ArrayLike, Index, PerfectSquare, Value
+from .types import Index, PerfectSquare, Value
 
 
-class Tokens(list):
-    __slots__ = tuple()
+class Board:
+    class Tokens(list):
+        __slots__ = tuple()
 
-    def swap(self, i: Value, j: Value):
-        self[i], self[j] = self[j], self[i]
+        def swap(self, i: Value, j: Value):
+            self[i], self[j] = self[j], self[i]
 
-    def shuffle(self):
-        tokens = self[1:]
-        random.shuffle(tokens)
-        self[1:] = tokens
+        def shuffle(self):
+            tokens = self[1:]
+            random.shuffle(tokens)
+            self[1:] = tokens
 
+    class Cell:
+        __slots__ = 'board', '__candidates'
 
-class Candidates(set):
-    __slots__ = tuple()
+        board: Board
+        __candidates: Set[Value]
 
-    def strip(self, *candidates):
-        before = len(self)
-        self.clear()
-        for c in candidates:
-            self.add(c)
-        return before - len(self)
-
-
-class Cell: # TODO: Consider merging candidates in here with the help of decorators
-    __slots__ = 'candidates',
-
-    candidates: Candidates
-
-    def __init__(self, order: PerfectSquare, value: Value):
-        self.candidates = Candidates(i + 1 for i in range(order))
-        if value != 0:
+        def __init__(self, board: Board, value: Value):
+            self.board = board
+            self.candidates = set()
             self.value = value
 
-    @property
-    def value(self) -> Value:
-        if len(self.candidates) > 1:
-            return 0
-        return next(iter(self.candidates))
+        @property
+        def candidates(self) -> Set[Value]:
+            return self.__candidates
 
-    @value.setter
-    def value(self, value):
-        if value != 0:
-            self.candidates.strip(value)
+        @candidates.setter
+        def candidates(self, candidates: Iterable):
+            self.__candidates = set(candidates)
 
-    def is_blank(self) -> bool:
-        return len(self.candidates) > 1
+        @property
+        def value(self) -> Value:
+            if len(self.__candidates) > 1:
+                return 0
+            return next(iter(self.__candidates))
 
+        @value.setter
+        def value(self, value: Value):
+            if value == 0:
+                self.candidates = {i + 1 for i in range(self.board.order)}
+            else:
+                self.strip(value)
 
-class Board: # TODO: Consider nesting above classes -- would make accessing order, tokens, and cells less expensive
+        def is_blank(self) -> bool:
+            return len(self.__candidates) > 1
+
+        def strip(self, *candidates: Iterable):
+            before = len(self.candidates)
+            self.candidates = candidates
+            return before - len(self.candidates)
+
     __slots__ = 'order', 'tokens', 'cells'
 
     order: PerfectSquare
@@ -143,20 +148,20 @@ class Board: # TODO: Consider nesting above classes -- would make accessing orde
                         return True
         return False
 
-    def __init__(self, arr: ArrayLike, blank):
-        arr = np.array(list(arr)).flatten()
+    def __init__(self, iterable: Iterable, blank):
+        iterable = np.array(list(iterable)).flatten()
 
-        self.order = int(len(arr) ** .5)
-        self.tokens = Tokens(blank)
-        self.cells = np.empty(len(arr), dtype=object)
+        self.order = int(len(iterable) ** .5)
+        self.tokens = self.Tokens(blank)
+        self.cells = np.empty(len(iterable), dtype=object)
 
-        for i, token in enumerate(arr):
+        for i, token in enumerate(iterable):
             try:
                 v = self.tokens.index(token)
             except ValueError:
                 self.tokens.append(token)
                 v = len(self.tokens) - 1
-            self.cells[i] = Cell(self.order, v)
+            self.cells[i] = self.Cell(self, v)
 
     def _shift_indices(self, *indices: List[Index]) -> None:
         tmp = self.cells[indices[0]]
