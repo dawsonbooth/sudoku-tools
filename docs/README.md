@@ -8,7 +8,7 @@
 
 ## Description
 
-This is a short or long textual description of the package.
+This Python package is a collection of useful tools for generating, grading, solving, and transforming sudoku puzzles.
 
 ## Installation
 
@@ -20,29 +20,23 @@ pip install sudoku-tools
 
 ## Usage
 
-The following is an example usage of the package:
+The object can be constructed with a 1-dimensional board:
 
 ```python
-from foo import bar
+arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+puzzle = Puzzle(arr_1d, 0)
+```
+... or with a 2-dimensional board:
 
-print("Ok here we go")
-
-try:
-    bar()
-except:
-    print("Ah good effort")
+```python
+arr_2d = [[1, 0, 3, 4],
+	[0, 4, 1, 0],
+	[0, 3, 0, 1],
+	[4, 0, 2, 3]]
+puzzle = Puzzle(arr_2d, 0)
 ```
 
-Some info about calling the program.
-
-```bash
-python whatever.py > out.txt
-```
-Then some output (console or file whatever)
-
-```txt
-Output here I guess
-```
+Feel free to [check out the docs](https://dawsonbooth.github.io/sudoku-tools/) for more information.
 
 ## License
 
