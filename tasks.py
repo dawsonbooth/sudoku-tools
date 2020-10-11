@@ -39,15 +39,12 @@ def build(c):
 
 
 @task
-def publish(c, docs=False, package=False):
-    if not package or (package and docs):
-        c.run("mkdocs gh-deploy")
+def publish(c):
+    c.run("mkdocs gh-deploy")
+    c.run("poetry publish")
 
-    if not docs or (package and docs):
-        c.run("poetry publish")
+    version = c.run("poetry version -s").stdout
 
-        version = c.run("poetry version -s").stdout
-
-        c.run(f'git commit -m "v{version}"')
-        c.run(f"git tag v{version}")
-        c.run(f"git push origin v{version}")
+    c.run(f'git commit -m "v{version}"')
+    c.run(f"git tag v{version}")
+    c.run(f"git push origin v{version}")
