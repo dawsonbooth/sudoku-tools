@@ -94,192 +94,177 @@
               
                 <p><a name="sudoku"></a></p>
 <h1 id="sudoku">sudoku<a class="headerlink" href="#sudoku" title="Permanent link">🔗</a></h1>
-<p><a name="sudoku.board"></a></p>
-<h1 id="sudokuboard">sudoku.board<a class="headerlink" href="#sudokuboard" title="Permanent link">🔗</a></h1>
-<p><a name="sudoku.board.Board"></a></p>
-<h2 id="board-objects">Board Objects<a class="headerlink" href="#board-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class Board()
-</code></pre>
-
-<p><a name="sudoku.board.Board.has_conflicts"></a></p>
-<h4 id="has_conflicts">has_conflicts<a class="headerlink" href="#has_conflicts" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | has_conflicts() -&gt; bool
-</code></pre>
-
-<p>A method to determine if the board has any conflicting cells</p>
-<p><a name="sudoku.board.Board.reflect"></a></p>
-<h4 id="reflect">reflect<a class="headerlink" href="#reflect" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | reflect(direction=&quot;horizontal&quot;)
-</code></pre>
-
-<p>Reflect the Sudoku board horizontally or vertically</p>
-<p>@ param direction The direction in reflection</p>
-<p><a name="sudoku.board.Board.rotate"></a></p>
-<h4 id="rotate">rotate<a class="headerlink" href="#rotate" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | rotate(rotations=1)
-</code></pre>
-
-<p>Rotate the Sudoku board clockwise a given number in times.</p>
-<p>@ param rotations The number in clockwise rotations to be performed. self value may be negative and will be rounded.</p>
-<p><a name="sudoku.board.Board.transpose"></a></p>
-<h4 id="transpose">transpose<a class="headerlink" href="#transpose" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | transpose()
-</code></pre>
-
-<p>Switch the rows and columns in the Sudoku board</p>
-<p><a name="sudoku.board.Board.shuffle"></a></p>
-<h4 id="shuffle">shuffle<a class="headerlink" href="#shuffle" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | shuffle()
-</code></pre>
-
-<p>Shuffle the board using rotations, reflections, and token-swapping</p>
-<p><a name="sudoku.board.Board.to_1D"></a></p>
-<h4 id="to_1d">to_1D<a class="headerlink" href="#to_1d" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | to_1D()
-</code></pre>
-
-<p>A method for getting back the Sudoku board as a 1-dimensional array</p>
-<p>@ returns A 1D array in the Sudoku board</p>
-<p><a name="sudoku.board.Board.to_2D"></a></p>
-<h4 id="to_2d">to_2D<a class="headerlink" href="#to_2d" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | to_2D()
-</code></pre>
-
-<p>A method for getting back the Sudoku board as a 2-dimensional array</p>
-<p>@ returns A 2D array in the Sudoku board</p>
-<p><a name="sudoku.board.Board.to_string"></a></p>
-<h4 id="to_string">to_string<a class="headerlink" href="#to_string" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | to_string() -&gt; str
-</code></pre>
-
-<p>A method for getting back the Sudoku board as a string</p>
-<p>@ returns A string representation in the Sudoku board</p>
-<p><a name="sudoku.board.Board.to_formatted_string"></a></p>
-<h4 id="to_formatted_string">to_formatted_string<a class="headerlink" href="#to_formatted_string" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | to_formatted_string(cellCorner=&quot;┼&quot;, boxCorner=&quot;╬&quot;, topLeftCorner=&quot;╔&quot;, topRightCorner=&quot;╗&quot;, bottomLeftCorner=&quot;╚&quot;, bottomRightCorner=&quot;╝&quot;, innerTopTowerCorner=&quot;╦&quot;, innerBottomTowerCorner=&quot;╩&quot;, innerLeftFloorCorner=&quot;╠&quot;, innerRightFloorCorner=&quot;╣&quot;, cellHorizontalBorder=&quot;─&quot;, boxHorizontalBorder=&quot;═&quot;, cellVerticalBorder=&quot;│&quot;, boxVerticalBorder=&quot;║&quot;, blank=&quot; &quot;)
-</code></pre>
-
-<p>A method for getting back the Sudoku board as a formatted string</p>
-<p>@ returns A formatted string representing the Sudoku board</p>
-<p><a name="sudoku.test"></a></p>
-<h1 id="sudokutest">sudoku.test<a class="headerlink" href="#sudokutest" title="Permanent link">🔗</a></h1>
-<p><a name="sudoku.test.test_board"></a></p>
-<h1 id="sudokutesttest_board">sudoku.test.test_board<a class="headerlink" href="#sudokutesttest_board" title="Permanent link">🔗</a></h1>
-<p><a name="sudoku.test.test_puzzle"></a></p>
-<h1 id="sudokutesttest_puzzle">sudoku.test.test_puzzle<a class="headerlink" href="#sudokutesttest_puzzle" title="Permanent link">🔗</a></h1>
 <p><a name="sudoku.strategies"></a></p>
 <h1 id="sudokustrategies">sudoku.strategies<a class="headerlink" href="#sudokustrategies" title="Permanent link">🔗</a></h1>
 <p><a name="sudoku.strategies.Strategy"></a></p>
 <h2 id="strategy-objects">Strategy Objects<a class="headerlink" href="#strategy-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class Strategy()
+<pre><code class="language-python">class Strategy()
 </code></pre>
-
 <p>Also known as a <a href="http://sudopedia.enjoysudoku.com/Solving_Technique.html">Solving Technique</a></p>
 <p><a name="sudoku.strategies.RefreshCandidates"></a></p>
 <h2 id="refreshcandidates-objects">RefreshCandidates Objects<a class="headerlink" href="#refreshcandidates-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class RefreshCandidates(Strategy)
+<pre><code class="language-python">class RefreshCandidates(Strategy)
 </code></pre>
-
 <p>Remove invalid candidates from each cell</p>
 <p><a name="sudoku.strategies.HiddenSubset"></a></p>
 <h2 id="hiddensubset-objects">HiddenSubset Objects<a class="headerlink" href="#hiddensubset-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class HiddenSubset(Strategy)
+<pre><code class="language-python">class HiddenSubset(Strategy)
 </code></pre>
-
 <p>Apply the <a href="http://sudopedia.enjoysudoku.com/Hidden_Subset.html">Hidden Subset</a> strategy</p>
 <p><a name="sudoku.strategies.HiddenSingle"></a></p>
 <h2 id="hiddensingle-objects">HiddenSingle Objects<a class="headerlink" href="#hiddensingle-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class HiddenSingle(HiddenSubset)
+<pre><code class="language-python">class HiddenSingle(HiddenSubset)
 </code></pre>
-
 <p>The <a href="http://sudopedia.enjoysudoku.com/Hidden_Single.html">Hidden Single</a> strategy</p>
 <p><a name="sudoku.strategies.NakedSubset"></a></p>
 <h2 id="nakedsubset-objects">NakedSubset Objects<a class="headerlink" href="#nakedsubset-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class NakedSubset(Strategy)
+<pre><code class="language-python">class NakedSubset(Strategy)
 </code></pre>
-
 <p>Apply the <a href="http://sudopedia.enjoysudoku.com/Naked_Subset.html">Naked Subset</a> strategy</p>
 <p><a name="sudoku.strategies.NakedSingle"></a></p>
 <h2 id="nakedsingle-objects">NakedSingle Objects<a class="headerlink" href="#nakedsingle-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class NakedSingle(NakedSubset)
+<pre><code class="language-python">class NakedSingle(NakedSubset)
 </code></pre>
-
 <p>The <a href="http://sudopedia.enjoysudoku.com/Naked_Single.html">Naked Single</a> strategy</p>
 <p><a name="sudoku.strategies.ForcedDigit"></a></p>
 <h4 id="forceddigit">ForcedDigit<a class="headerlink" href="#forceddigit" title="Permanent link">🔗</a></h4>
 <p>Alias for the [[NakedSingle]] strategy</p>
 <p><a name="sudoku.strategies.NakedDouble"></a></p>
 <h2 id="nakeddouble-objects">NakedDouble Objects<a class="headerlink" href="#nakeddouble-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class NakedDouble(NakedSubset)
+<pre><code class="language-python">class NakedDouble(NakedSubset)
 </code></pre>
-
 <p>Apply the <a href="http://sudopedia.enjoysudoku.com/Naked_Double.html">Naked Double</a> strategy</p>
 <p><a name="sudoku.strategies.NakedTriple"></a></p>
 <h2 id="nakedtriple-objects">NakedTriple Objects<a class="headerlink" href="#nakedtriple-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class NakedTriple(NakedSubset)
+<pre><code class="language-python">class NakedTriple(NakedSubset)
 </code></pre>
-
 <p>Apply the <a href="http://sudopedia.enjoysudoku.com/Naked_Triple.html">Naked Triple</a> strategy</p>
 <p><a name="sudoku.strategies.NakedQuad"></a></p>
 <h2 id="nakedquad-objects">NakedQuad Objects<a class="headerlink" href="#nakedquad-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class NakedQuad(NakedSubset)
+<pre><code class="language-python">class NakedQuad(NakedSubset)
 </code></pre>
-
 <p>Apply the <a href="http://sudopedia.enjoysudoku.com/Naked_Quad.html">Naked Quad</a> strategy</p>
 <p><a name="sudoku.strategies.strategies"></a></p>
 <h4 id="strategies">strategies<a class="headerlink" href="#strategies" title="Permanent link">🔗</a></h4>
-<pre><code class="python">strategies(order: PerfectSquare)
+<pre><code class="language-python">strategies(order: PerfectSquare)
 </code></pre>
-
 <p>Generator for strategies from simple to complex with a given order</p>
 <p><a name="sudoku.puzzle"></a></p>
 <h1 id="sudokupuzzle">sudoku.puzzle<a class="headerlink" href="#sudokupuzzle" title="Permanent link">🔗</a></h1>
 <p><a name="sudoku.puzzle.Puzzle"></a></p>
 <h2 id="puzzle-objects">Puzzle Objects<a class="headerlink" href="#puzzle-objects" title="Permanent link">🔗</a></h2>
-<pre><code class="python">class Puzzle(Board)
+<pre><code class="language-python">class Puzzle()
 </code></pre>
-
-<p>The object can be constructed with a 1-dimensional board:</p>
-<pre><code class="python">arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+<p>The object can be constructed with a 1-dimensional board:
+... or with a 2-dimensional board:</p>
+<pre><code class="language-python">arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
 puzzle = Puzzle(arr_1d, 0)
 </code></pre>
-
-<p>... or with a 2-dimensional board:</p>
-<pre><code class="python">arr_2d = [[1, 0, 3, 4],
+<pre><code class="language-python">arr_2d = [[1, 0, 3, 4],
         [0, 4, 1, 0],
         [0, 3, 0, 1],
         [4, 0, 2, 3]]
 puzzle = Puzzle(arr_2d, 0)
 
 </code></pre>
-
-<p>@param list An array-like object representing a Sudoku board
-@param blank The value used to represent a blank cell</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>list</code> - An iterable representing a Sudoku board</li>
+<li><code>blank</code> - The value used to represent a blank cell</li>
+</ul>
+<p><a name="sudoku.puzzle.Puzzle.has_conflicts"></a></p>
+<h4 id="has_conflicts">has_conflicts<a class="headerlink" href="#has_conflicts" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | has_conflicts() -&gt; bool
+</code></pre>
+<p>A method to determine if the board has any conflicting cells</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>bool</code> - True if the board has conflicts, False otherwise</li>
+</ul>
+<p><a name="sudoku.puzzle.Puzzle.reflect"></a></p>
+<h4 id="reflect">reflect<a class="headerlink" href="#reflect" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | reflect(direction=&quot;horizontal&quot;) -&gt; None
+</code></pre>
+<p>Reflect the Sudoku board horizontally or vertically</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>direction</code> <em>str</em> - The direction in reflection</li>
+</ul>
+<p><a name="sudoku.puzzle.Puzzle.rotate"></a></p>
+<h4 id="rotate">rotate<a class="headerlink" href="#rotate" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | rotate(rotations=1) -&gt; None
+</code></pre>
+<p>Rotate the Sudoku board clockwise a given number in times.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>rotations</code> <em>int</em> - The number in clockwise rotations to be performed. This value may be negative and will be rounded.</li>
+</ul>
+<p><a name="sudoku.puzzle.Puzzle.transpose"></a></p>
+<h4 id="transpose">transpose<a class="headerlink" href="#transpose" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | transpose() -&gt; None
+</code></pre>
+<p>Switch the rows and columns in the Sudoku board</p>
+<p><a name="sudoku.puzzle.Puzzle.shuffle"></a></p>
+<h4 id="shuffle">shuffle<a class="headerlink" href="#shuffle" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | shuffle() -&gt; None
+</code></pre>
+<p>Shuffle the board using rotations, reflections, and token-swapping</p>
+<p><a name="sudoku.puzzle.Puzzle.to_1D"></a></p>
+<h4 id="to_1d">to_1D<a class="headerlink" href="#to_1d" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | to_1D()
+</code></pre>
+<p>A method for getting back the Sudoku board as a 1-dimensional array</p>
+<p><strong>Returns</strong>:</p>
+<p>A 1D array in the Sudoku board</p>
+<p><a name="sudoku.puzzle.Puzzle.to_2D"></a></p>
+<h4 id="to_2d">to_2D<a class="headerlink" href="#to_2d" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | to_2D()
+</code></pre>
+<p>A method for getting back the Sudoku board as a 2-dimensional array</p>
+<p><strong>Returns</strong>:</p>
+<p>A 2D array in the Sudoku board</p>
+<p><a name="sudoku.puzzle.Puzzle.to_string"></a></p>
+<h4 id="to_string">to_string<a class="headerlink" href="#to_string" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | to_string() -&gt; str
+</code></pre>
+<p>A method for getting back the Sudoku board as a string</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>str</code> - A string representation in the Sudoku board</li>
+</ul>
+<p><a name="sudoku.puzzle.Puzzle.to_formatted_string"></a></p>
+<h4 id="to_formatted_string">to_formatted_string<a class="headerlink" href="#to_formatted_string" title="Permanent link">🔗</a></h4>
+<pre><code class="language-python"> | to_formatted_string(cell_corner=&quot;┼&quot;, box_corner=&quot;╬&quot;, top_left_corner=&quot;╔&quot;, top_right_corner=&quot;╗&quot;, bottom_left_corner=&quot;╚&quot;, bottom_right_corner=&quot;╝&quot;, inner_top_tower_corner=&quot;╦&quot;, inner_bottom_tower_corner=&quot;╩&quot;, inner_left_floor_corner=&quot;╠&quot;, inner_right_floor_corner=&quot;╣&quot;, cell_horizontal_border=&quot;─&quot;, box_horizontal_border=&quot;═&quot;, cell_vertical_border=&quot;│&quot;, box_vertical_border=&quot;║&quot;, blank=&quot; &quot;) -&gt; str
+</code></pre>
+<p>A method for getting back the Sudoku board as a formatted string</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>str</code> - A formatted string representing the Sudoku board</li>
+</ul>
 <p><a name="sudoku.puzzle.Puzzle.is_solved"></a></p>
 <h4 id="is_solved">is_solved<a class="headerlink" href="#is_solved" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | is_solved() -&gt; bool
+<pre><code class="language-python"> | is_solved() -&gt; bool
 </code></pre>
-
 <p>Check whether puzzle is solved</p>
 <p><a name="sudoku.puzzle.Puzzle.solve"></a></p>
 <h4 id="solve">solve<a class="headerlink" href="#solve" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | solve()
+<pre><code class="language-python"> | solve() -&gt; Dict[str, int]
 </code></pre>
-
 <p>Solve the puzzle with strategies</p>
 <p><a name="sudoku.puzzle.Puzzle.has_solution"></a></p>
 <h4 id="has_solution">has_solution<a class="headerlink" href="#has_solution" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | has_solution()
+<pre><code class="language-python"> | has_solution() -&gt; bool
 </code></pre>
-
 <p>Return whether the puzzle can be solved using strategies</p>
 <p><a name="sudoku.puzzle.Puzzle.rate"></a></p>
 <h4 id="rate">rate<a class="headerlink" href="#rate" title="Permanent link">🔗</a></h4>
-<pre><code class="python"> | rate()
+<pre><code class="language-python"> | rate() -&gt; float
 </code></pre>
-
 <p>Calculate the difficulty of solving the puzzle</p>
-<p>@returns A difficulty score between 0 and 1</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>float</code> - A difficulty score between 0 and 1</li>
+</ul>
 <p><a name="sudoku.types"></a></p>
 <h1 id="sudokutypes">sudoku.types<a class="headerlink" href="#sudokutypes" title="Permanent link">🔗</a></h1>
 <p><a name="sudoku.examples"></a></p>

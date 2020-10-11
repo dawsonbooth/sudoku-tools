@@ -107,32 +107,24 @@
 <a href="https://pypi.org/pypi/sudoku-tools/"><img alt="" src="https://img.shields.io/pypi/format/sudoku-tools.svg?style=flat" /></a>
 <a href="https://github.com/dawsonbooth/sudoku-tools/blob/master/LICENSE"><img alt="" src="https://img.shields.io/pypi/l/sudoku-tools.svg?style=flat" /></a></p>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">🔗</a></h2>
-<p>This is a short or long textual description of the package.</p>
+<p>This Python package is a collection of useful tools for generating, grading, solving, and transforming sudoku puzzles.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">🔗</a></h2>
 <p>With <a href="https://www.python.org/downloads/">Python</a> installed, simply run the following command to add the package to your project.</p>
-<pre><code class="bash">pip install sudoku-tools
+<pre><code class="language-bash">pip install sudoku-tools
 </code></pre>
-
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">🔗</a></h2>
-<p>The following is an example usage of the package:</p>
-<pre><code class="python">from foo import bar
-
-print(&quot;Ok here we go&quot;)
-
-try:
-    bar()
-except:
-    print(&quot;Ah good effort&quot;)
+<p>The object can be constructed with a 1-dimensional board:</p>
+<pre><code class="language-python">arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+puzzle = Puzzle(arr_1d, 0)
 </code></pre>
-
-<p>Some info about calling the program.</p>
-<pre><code class="bash">python whatever.py &gt; out.txt
+<p>... or with a 2-dimensional board:</p>
+<pre><code class="language-python">arr_2d = [[1, 0, 3, 4],
+    [0, 4, 1, 0],
+    [0, 3, 0, 1],
+    [4, 0, 2, 3]]
+puzzle = Puzzle(arr_2d, 0)
 </code></pre>
-
-<p>Then some output (console or file whatever)</p>
-<pre><code class="txt">Output here I guess
-</code></pre>
-
+<p>Feel free to <a href="https://dawsonbooth.github.io/sudoku-tools/">check out the docs</a> for more information.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">🔗</a></h2>
 <p>This software is released under the terms of <a href="LICENSE">MIT license</a>.</p>
               
@@ -190,5 +182,5 @@ except:
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-07-30 06:15:41.410956+00:00
+Build Date UTC : 2020-10-11 21:56:56.195668+00:00
 -->
