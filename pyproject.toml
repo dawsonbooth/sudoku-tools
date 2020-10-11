@@ -21,9 +21,6 @@ packages = [
     { include = "sudoku" },
 ]
 
-[tool.poetry.scripts]
-sudoku-tools = 'console:main'
-
 [tool.poetry.dependencies]
 python = "^3.6"
 numpy = "^1.19.1"
