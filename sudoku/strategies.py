@@ -24,7 +24,7 @@ class RefreshCandidates(Strategy):
     """
 
     def __init__(self):
-        super().__init__(difficulty=0.0769)
+        super().__init__(difficulty=0.769)
 
     def __call__(self, puzzle):
         candidate_eliminations = 0
@@ -47,7 +47,7 @@ class HiddenSubset(Strategy):
     size: int
 
     def __init__(self, size):
-        super().__init__(difficulty=0.0163 * size)
+        super().__init__(difficulty=0.163 * size)
         self.name += f" - {size}"
         self.size = size
 
@@ -102,7 +102,7 @@ class NakedSubset(Strategy):
     __slots__ = ("size",)
 
     def __init__(self, size):
-        super().__init__(difficulty=0.0323 * size)
+        super().__init__(difficulty=0.323 * size)
         self.name += f" - {size}"
         self.size = size
 

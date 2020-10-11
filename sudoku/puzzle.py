@@ -86,6 +86,6 @@ class Puzzle(Board):
         for strat in candidate_eliminations.keys():
             ds = difficulties[strat]
             cs = candidate_eliminations[strat]
-            difficulty += ds * (cs / self.order ** 2)
+            difficulty += ds * (cs / (self.order ** 3 - self.order ** 2))
 
         return difficulty
