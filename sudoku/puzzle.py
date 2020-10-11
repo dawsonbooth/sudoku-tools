@@ -29,7 +29,7 @@ class Puzzle:
     ```
 
     Args:
-        list: An iterable representing a Sudoku board
+        iterable: An iterable representing a Sudoku board
         blank: The value used to represent a blank cell
     """
 
