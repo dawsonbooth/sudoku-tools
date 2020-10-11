@@ -44,7 +44,7 @@ class HiddenSubset(Strategy):
     Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
     """
 
-    __slots__: ('size',)
+    __slots__ = ('size',)
 
     size: int
 
