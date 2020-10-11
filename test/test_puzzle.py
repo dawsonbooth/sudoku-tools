@@ -1,4 +1,4 @@
-from .. import Puzzle
+from sudoku import Puzzle
 
 prompts = {
     "boards": [

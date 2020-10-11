@@ -23,7 +23,7 @@ def lint(c):
 
 @task
 def test(c):
-    c.run("pytest sudoku/test")
+    c.run("pytest test")
 
 
 @task
