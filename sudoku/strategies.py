@@ -1,9 +1,7 @@
-from typing import Iterator
-
-from .types import Index, PerfectSquare
-import numpy as np
 
 import itertools
+
+from .types import PerfectSquare
 
 
 class Strategy:
