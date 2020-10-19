@@ -39,9 +39,6 @@ class Puzzle(Generic[T]):
         """
         A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
         which are the respective indices of this list.
-
-        Args:
-            List ([type]): [description]
         """
         __slots__ = tuple()
 
