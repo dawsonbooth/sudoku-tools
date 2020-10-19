@@ -3,92 +3,107 @@ from __future__ import annotations
 import itertools
 import random
 from collections import defaultdict
-from typing import Dict, Iterable, List, Set
+from typing import Dict, Generic, Iterable, List, Set, TypeVar
 
 import numpy as np
 
 from .strategies import strategies
 from .types import Index, PerfectSquare, Value
 
+T = TypeVar('T')
 
-class Puzzle:
+
+class Puzzle(Generic[T]):
     """
-    The object can be constructed with a 1-dimensional board:
-    ```python
-    arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
-    puzzle = Puzzle(arr_1d, 0)
-    ```
-    ... or with a 2-dimensional board:
-    ```python
-    arr_2d = [[1, 0, 3, 4],
-            [0, 4, 1, 0],
-            [0, 3, 0, 1],
-            [4, 0, 2, 3]]
-    puzzle = Puzzle(arr_2d, 0)
-
+    The base class for a sudoku puzzle.
     ```
 
     Args:
-        iterable: An iterable representing a Sudoku board
-        blank: The value used to represent a blank cell
+        Generic (T): The base type for each token in the sudoku puzzle
+
+    Attributes:
+        tokens (Tokens): A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
+            which are the respective indices of this list.
+        order (PerfectSquare): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,
+            this value is 9.
+        cells (List[Cell]): A list of all the cells in the sudoku puzzle.
     """
-
-    class Tokens(list):
-        __slots__ = tuple()
-
-        def swap(self, i: Value, j: Value):
-            self[i], self[j] = self[j], self[i]
-
-        def shuffle(self):
-            tokens = self[1:]
-            random.shuffle(tokens)
-            self[1:] = tokens
-
-    class Cell:
-        __slots__ = 'board', '__candidates'
-
-        board: Puzzle
-        __candidates: Set[Value]
-
-        def __init__(self, board: Puzzle, value: Value):
-            self.board = board
-            self.candidates = set()
-            self.value = value
-
-        @property
-        def candidates(self) -> Set[Value]:
-            return self.__candidates
-
-        @candidates.setter
-        def candidates(self, candidates: Iterable):
-            self.__candidates = set(candidates)
-
-        @property
-        def value(self) -> Value:
-            if len(self.__candidates) > 1:
-                return 0
-            return next(iter(self.__candidates))
-
-        @value.setter
-        def value(self, value: Value):
-            if value == 0:
-                self.candidates = {i + 1 for i in range(self.board.order)}
-            else:
-                self.strip(value)
-
-        def is_blank(self) -> bool:
-            return len(self.__candidates) > 1
-
-        def strip(self, *candidates: Iterable):
-            before = len(self.candidates)
-            self.candidates = candidates
-            return before - len(self.candidates)
 
     __slots__ = 'order', 'tokens', 'cells'
 
     order: PerfectSquare
     tokens: Tokens
     cells: List[Cell]
+
+    class Tokens(List[T]):
+        """
+        A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
+        which are the respective indices of this list.
+
+        Args:
+            List ([type]): [description]
+        """
+        __slots__ = tuple()
+
+        def swap(self, i: Value, j: Value):
+            """
+            Switch the positions of two sets of tokens in the puzzle by switching their respective aliases.
+
+            Args:
+                i (Value): The integer alias value associated with a token
+                j (Value): The integer alias value associated with a token
+            """
+            self[i], self[j] = self[j], self[i]
+
+        def shuffle(self):
+            """
+            Randomly swap the tokens in the puzzle by randomizing their integer aliases.
+            """
+            tokens = self[1:]
+            random.shuffle(tokens)
+            self[1:] = tokens
+
+    class Cell:
+        """
+        The class for an individual cell in the sudoku puzzle
+
+        Attributes:
+            puzzle (Puzzle[T]): The corresponding sudoku puzzle
+            candidates (Set[Value]): A set of the cell's remaining candidates
+            value (Value): The value of the sudoku cell or 0 if it is blank.
+        """
+
+        __slots__ = 'puzzle', 'candidates'
+
+        puzzle: Puzzle[T]
+        candidates: Set[Value]
+
+        def __init__(self, puzzle: Puzzle[T], value: Value):
+            self.puzzle = puzzle
+            self.candidates = {i + 1 for i in range(self.puzzle.order)}
+            self.value = value
+
+        @property
+        def value(self) -> Value:
+            if len(self.candidates) > 1:
+                return 0
+            return next(iter(self.candidates))
+
+        @value.setter
+        def value(self, value: Value):
+            if value == 0:
+                self.candidates = {i + 1 for i in range(self.puzzle.order)}
+            else:
+                self.candidates = {value}
+
+        def is_blank(self) -> bool:
+            """
+            Check whether the cell is blank or has a value.
+
+            Returns:
+                bool: A boolean value for whether the cell is blank.
+            """
+            return len(self.candidates) > 1
 
     def _box(self, index: Index):
         boxWidth = int(self.order ** .5)
@@ -172,7 +187,26 @@ class Puzzle:
                         return True
         return False
 
-    def __init__(self, iterable: Iterable, blank):
+    def __init__(self, iterable: Iterable[T], blank: T):
+        """
+        The object can be constructed with a 1-dimensional board:
+        ```python
+        arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
+        puzzle = Puzzle(arr_1d, 0)
+        ```
+        ... or with a 2-dimensional board:
+        ```python
+        arr_2d = [[1, 0, 3, 4],
+                [0, 4, 1, 0],
+                [0, 3, 0, 1],
+                [4, 0, 2, 3]]
+        puzzle = Puzzle(arr_2d, 0)
+        ```
+
+        Args:
+            iterable (Iterable[T]): An iterable representing a Sudoku board
+            blank (T): The value used to represent a blank cell
+        """
         iterable = list(itertools.chain.from_iterable(iterable))
 
         self.order = int(len(iterable) ** .5)
@@ -193,12 +227,12 @@ class Puzzle:
             self.cells[indices[i - 1]] = self.cells[indices[i]]
         self.cells[indices[-1]] = tmp
 
-    def reflect(self, direction="horizontal") -> None:
+    def reflect(self, direction: str = "horizontal") -> None:
         """
         Reflect the Sudoku board horizontally or vertically
 
         Args:
-            direction (str): The direction in reflection
+            direction (str): The direction over which to reflect. Defaults to "horizontal".
         """
         n = self.order
         x = n // 2
@@ -217,7 +251,9 @@ class Puzzle:
         Rotate the Sudoku board clockwise a given number in times.
 
         Args:
-            rotations (int): The number in clockwise rotations to be performed. This value may be negative and will be rounded.
+            rotations (int): The number in clockwise rotations to be performed.
+                This value may be negative and is rounded to the nearest integer.
+                Defaults to 1.
         """
         if not isinstance(rotations, int):
             rotations = round(rotations)
@@ -261,21 +297,21 @@ class Puzzle:
             self.reflect(random.choice(("horizontal", "vertical")))
             self.rotate(random.choice(range(4)))
 
-    def to_1D(self):
+    def to_1D(self) -> List[T]:
         """
         A method for getting back the Sudoku board as a 1-dimensional array
 
         Returns:
-            A 1D array in the Sudoku board
+            List[T]: A 1D array of the Sudoku board in the board's original type
         """
         return [self.tokens[c.value] for c in self.cells]
 
-    def to_2D(self):
+    def to_2D(self) -> List[List[T]]:
         """
         A method for getting back the Sudoku board as a 2-dimensional array
 
         Returns:
-            A 2D array in the Sudoku board
+            List[T]: A 2D array of the Sudoku board in the board's original type
         """
         return np.reshape(self.to_1D(), (self.order, self.order)).tolist()
 
@@ -348,13 +384,19 @@ class Puzzle:
 
     def is_solved(self) -> bool:
         """
-        Check whether puzzle is solved
+        Check whether the puzzle is solved
+
+        Returns:
+            bool: A boolean value indicating whether the puzzle is solved
         """
-        return not any(c.is_blank() for c in self.cells)
+        return not any(c.is_blank() for c in self.cells) and not self.has_conflicts()
 
     def solve(self) -> Dict[str, int]:
         """
-        Solve the puzzle with strategies
+        Solve the puzzle using strategies
+
+        Returns:
+            Dict[str, int]: A dict containing the number of candidates eliminated by each strategy
         """
         candidate_eliminations = defaultdict(int)
 
@@ -377,21 +419,25 @@ class Puzzle:
 
     def has_solution(self) -> bool:
         """
-        Return whether the puzzle can be solved using strategies
+        Check whether the puzzle is able to be solved
+
+        Returns:
+            bool: A boolean value indicating whether the puzzle has a solution
         """
-        return bool(Puzzle(self.to_string(), self.tokens[0]).solve())
+        return bool(Puzzle[T](self.to_1D(), self.tokens[0]).solve())
 
     def rate(self) -> float:
         """
         Calculate the difficulty of solving the puzzle
 
         Returns:
-            float: A difficulty score between 0 and 1
+            float: A difficulty rating between 0 and 1
         """
         if self.is_solved():
             return 0
 
-        candidate_eliminations = Puzzle(self.to_1D(), self.tokens[0]).solve()
+        candidate_eliminations = Puzzle[T](
+            self.to_1D(), self.tokens[0]).solve()
         if not candidate_eliminations:
             return -1
 

@@ -41,7 +41,6 @@ class HiddenSubset(Strategy):
     """
     Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
     """
-
     __slots__ = ('size',)
 
     size: int
@@ -74,8 +73,11 @@ class HiddenSubset(Strategy):
 
                         if len(subset) == self.size:
                             for s in subset:
-                                candidate_eliminations += puzzle.cells[s].strip(
-                                    *hidden_candidates)
+                                before_size = len(puzzle.cells[s].candidates)
+                                puzzle.cells[s].candidates = set(
+                                    hidden_candidates)
+                                after_size = len(puzzle.cells[s].candidates)
+                                candidate_eliminations += before_size - after_size
 
         return candidate_eliminations
 
@@ -147,15 +149,16 @@ class NakedSingle(NakedSubset):
         super().__init__(1)
 
 
-"""
-Alias for the [[NakedSingle]] strategy
-"""
-ForcedDigit = NakedSingle
+class ForcedDigit(NakedSingle):
+    """
+    Alias for the [[NakedSingle]] strategy
+    """
 
-"""
-Alias for the [[NakedSingle]] strategy
-"""
-SoleCandidate = NakedSingle
+
+class SoleCandidate(NakedSingle):
+    """
+    Alias for the [[NakedSingle]] strategy
+    """
 
 
 class NakedDouble(NakedSubset):
