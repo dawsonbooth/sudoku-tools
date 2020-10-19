@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "sudoku-tools"
 version = "0.0.3"
-description = ""
+description = "A collection of useful tools for generating, grading, solving, and transforming sudoku puzzles"
 authors = ["Dawson Booth <pypi@dawsonbooth.com>"]
 license = "MIT"
 readme = "README.md"
