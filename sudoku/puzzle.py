@@ -3,12 +3,13 @@ from __future__ import annotations
 import itertools
 import random
 from collections import defaultdict
-from typing import Dict, Generic, Iterable, List, Set, TypeVar
+from copy import deepcopy
+from typing import Generic, Iterable, List, Set, TypeVar
 
 import numpy as np
 
-from .strategies import strategies
-from .types import Index, PerfectSquare, Value
+from .solvers import Solver
+from .solvers.strategy_solver import StrategySolver, essential_strategies
 
 T = TypeVar('T')
 
@@ -24,14 +25,14 @@ class Puzzle(Generic[T]):
     Attributes:
         tokens (Tokens): A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
             which are the respective indices of this list.
-        order (PerfectSquare): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,
+        order (int): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,
             this value is 9.
         cells (List[Cell]): A list of all the cells in the sudoku puzzle.
     """
 
     __slots__ = 'order', 'tokens', 'cells'
 
-    order: PerfectSquare
+    order: int
     tokens: Tokens
     cells: List[Cell]
 
@@ -42,13 +43,13 @@ class Puzzle(Generic[T]):
         """
         __slots__ = tuple()
 
-        def swap(self, i: Value, j: Value):
+        def swap(self, i: int, j: int):
             """
             Switch the positions of two sets of tokens in the puzzle by switching their respective aliases.
 
             Args:
-                i (Value): The integer alias value associated with a token
-                j (Value): The integer alias value associated with a token
+                i (int): The integer alias value associated with a token
+                j (int): The integer alias value associated with a token
             """
             self[i], self[j] = self[j], self[i]
 
@@ -66,28 +67,28 @@ class Puzzle(Generic[T]):
 
         Attributes:
             puzzle (Puzzle[T]): The corresponding sudoku puzzle
-            candidates (Set[Value]): A set of the cell's remaining candidates
-            value (Value): The value of the sudoku cell or 0 if it is blank.
+            candidates (Set[int]): A set of the cell's remaining candidates
+            value (int): The value of the sudoku cell or 0 if it is blank.
         """
 
         __slots__ = 'puzzle', 'candidates'
 
         puzzle: Puzzle[T]
-        candidates: Set[Value]
+        candidates: Set[int]
 
-        def __init__(self, puzzle: Puzzle[T], value: Value):
+        def __init__(self, puzzle: Puzzle[T], value: int):
             self.puzzle = puzzle
             self.candidates = {i + 1 for i in range(self.puzzle.order)}
             self.value = value
 
         @property
-        def value(self) -> Value:
+        def value(self) -> int:
             if len(self.candidates) > 1:
                 return 0
             return next(iter(self.candidates))
 
         @value.setter
-        def value(self, value: Value):
+        def value(self, value: int):
             if value == 0:
                 self.candidates = {i + 1 for i in range(self.puzzle.order)}
             else:
@@ -102,7 +103,7 @@ class Puzzle(Generic[T]):
             """
             return len(self.candidates) > 1
 
-    def _box(self, index: Index):
+    def _box(self, index: int):
         boxWidth = int(self.order ** .5)
         row = index // self.order
         col = index % self.order
@@ -116,7 +117,7 @@ class Puzzle(Generic[T]):
                 p = int(self.order * r + c)
                 yield p, self.cells[p]
 
-    def _row(self, index: Index):
+    def _row(self, index: int):
         row = index // self.order
         col = index % self.order
 
@@ -125,7 +126,7 @@ class Puzzle(Generic[T]):
                 p = int(self.order * row + i)
                 yield p, self.cells[p]
 
-    def _col(self, index: Index):
+    def _col(self, index: int):
         row = index // self.order
         col = index % self.order
 
@@ -134,7 +135,7 @@ class Puzzle(Generic[T]):
                 p = int(self.order * i + col)
                 yield p, self.cells[p]
 
-    def _peers(self, index: Index):
+    def _peers(self, index: int):
         boxWidth = int(self.order ** .5)
         row = index // self.order
         col = index % self.order
@@ -184,7 +185,7 @@ class Puzzle(Generic[T]):
                         return True
         return False
 
-    def __init__(self, iterable: Iterable[T], blank: T):
+    def __init__(self, iterable: Iterable[T], blank: T = None):
         """
         The object can be constructed with a 1-dimensional board:
         ```python
@@ -206,6 +207,12 @@ class Puzzle(Generic[T]):
         """
         iterable = list(itertools.chain.from_iterable(iterable))
 
+        if blank is None:
+            if type(iterable[0]) == str:
+                blank = "."
+            else:
+                blank = type(iterable[0])()
+
         self.order = int(len(iterable) ** .5)
         self.tokens = self.Tokens(blank)
         self.cells = np.empty(len(iterable), dtype=object)
@@ -218,7 +225,7 @@ class Puzzle(Generic[T]):
                 v = len(self.tokens) - 1
             self.cells[i] = self.Cell(self, v)
 
-    def _shift_indices(self, *indices: List[Index]) -> None:
+    def _shift_indices(self, *indices: List[int]) -> None:
         tmp = self.cells[indices[0]]
         for i in range(1, len(indices)):
             self.cells[indices[i - 1]] = self.cells[indices[i]]
@@ -388,31 +395,17 @@ class Puzzle(Generic[T]):
         """
         return not any(c.is_blank() for c in self.cells) and not self.has_conflicts()
 
-    def solve(self) -> Dict[str, int]:
+    def solve(self, solver: Solver = StrategySolver) -> bool:
         """
-        Solve the puzzle using strategies
+        Solve the puzzle using one of the solvers
+
+        Args:
+            solver (Solver, optional): The solver used to solve the puzzle. Defaults to StrategySolver.
 
         Returns:
-            Dict[str, int]: A dict containing the number of candidates eliminated by each strategy
+            bool: A boolean value indicating whether the puzzle could be solved
         """
-        candidate_eliminations = defaultdict(int)
-
-        if self.has_conflicts():
-            return None
-
-        while not self.is_solved():
-            changed = False
-            for strategy in strategies(self.order):
-                eliminations = strategy(self)
-
-                if eliminations > 0:
-                    candidate_eliminations[strategy.name] += eliminations
-                    changed = True
-                    break
-            if not changed:
-                return dict(candidate_eliminations)
-
-        return dict(candidate_eliminations)
+        return solver().solve(self)
 
     def has_solution(self) -> bool:
         """
@@ -421,7 +414,7 @@ class Puzzle(Generic[T]):
         Returns:
             bool: A boolean value indicating whether the puzzle has a solution
         """
-        return bool(Puzzle[T](self.to_1D(), self.tokens[0]).solve())
+        return deepcopy(self).solve()
 
     def rate(self) -> float:
         """
@@ -432,20 +425,33 @@ class Puzzle(Generic[T]):
         """
         if self.is_solved():
             return 0
-
-        candidate_eliminations = Puzzle[T](
-            self.to_1D(), self.tokens[0]).solve()
-        if not candidate_eliminations:
+        if self.has_conflicts():
             return -1
 
-        difficulties = dict()
-        for strat in strategies(self.order):
-            difficulties[strat.name] = strat.difficulty
+        strategy_eliminations = defaultdict(int)
 
-        difficulty = 0
-        for strat in candidate_eliminations.keys():
-            ds = difficulties[strat]
-            cs = candidate_eliminations[strat]
-            difficulty += ds * (cs / (self.order ** 3 - self.order ** 2))
+        puzzle_copy = deepcopy(self)
 
-        return difficulty
+        while not puzzle_copy.is_solved():
+            changed = False
+
+            for strategy in essential_strategies(puzzle_copy.order):
+                eliminations = strategy(puzzle_copy)
+
+                if eliminations > 0:
+                    strategy_eliminations[strategy.name] += eliminations
+                    changed = True
+                    break
+            if not changed:
+                return -1
+
+        difficulties = dict(
+            (strategy.name, strategy.difficulty) for strategy in essential_strategies(self.order)
+        )
+
+        rating = 0
+        for strategy, eliminations in strategy_eliminations.items():
+            rating += difficulties[strategy] * eliminations / \
+                (self.order ** 2 * (self.order - 1))
+
+        return rating

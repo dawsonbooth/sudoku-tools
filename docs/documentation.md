@@ -107,7 +107,7 @@ Apply the [Naked Quad](http://sudopedia.enjoysudoku.com/Naked_Quad.html) strateg
 #### strategies
 
 ```python
-strategies(order: PerfectSquare)
+strategies(order: int)
 ```
 
 Generator for strategies from simple to complex with a given order
@@ -131,7 +131,7 @@ Args:
 Attributes:
     tokens (Tokens): A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
         which are the respective indices of this list.
-    order (PerfectSquare): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,
+    order (int): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,
         this value is 9.
     cells (List[Cell]): A list of all the cells in the sudoku puzzle.
 
