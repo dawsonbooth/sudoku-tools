@@ -4,25 +4,10 @@
 <a name="sudoku.strategies"></a>
 # sudoku.strategies
 
-<a name="sudoku.strategies.Strategy"></a>
-## Strategy Objects
+<a name="sudoku.strategies.hidden_subset"></a>
+# sudoku.strategies.hidden\_subset
 
-```python
-class Strategy()
-```
-
-Also known as a [Solving Technique](http://sudopedia.enjoysudoku.com/Solving_Technique.html)
-
-<a name="sudoku.strategies.RefreshCandidates"></a>
-## RefreshCandidates Objects
-
-```python
-class RefreshCandidates(Strategy)
-```
-
-Remove invalid candidates from each cell
-
-<a name="sudoku.strategies.HiddenSubset"></a>
+<a name="sudoku.strategies.hidden_subset.HiddenSubset"></a>
 ## HiddenSubset Objects
 
 ```python
@@ -31,7 +16,7 @@ class HiddenSubset(Strategy)
 
 Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
 
-<a name="sudoku.strategies.HiddenSingle"></a>
+<a name="sudoku.strategies.hidden_subset.HiddenSingle"></a>
 ## HiddenSingle Objects
 
 ```python
@@ -40,7 +25,59 @@ class HiddenSingle(HiddenSubset)
 
 The [Hidden Single](http://sudopedia.enjoysudoku.com/Hidden_Single.html) strategy
 
-<a name="sudoku.strategies.NakedSubset"></a>
+<a name="sudoku.strategies.refresh_candidates"></a>
+# sudoku.strategies.refresh\_candidates
+
+<a name="sudoku.strategies.refresh_candidates.RefreshCandidates"></a>
+## RefreshCandidates Objects
+
+```python
+class RefreshCandidates(Strategy)
+```
+
+Remove invalid candidates from each cell
+
+<a name="sudoku.strategies.strategy"></a>
+# sudoku.strategies.strategy
+
+<a name="sudoku.strategies.strategy.Strategy"></a>
+## Strategy Objects
+
+```python
+class Strategy()
+```
+
+Also known as a [Solving Technique](http://sudopedia.enjoysudoku.com/Solving_Technique.html)
+
+**Attributes**:
+
+- `name` _str_ - The name of the strategy
+- `difficulty` _float_ - The difficulty rating of the strategy defined with
+  respect to eliminating a single candidate
+
+<a name="sudoku.strategies.strategy.Strategy.__call__"></a>
+#### \_\_call\_\_
+
+```python
+ | __call__(puzzle: Puzzle[T]) -> int
+```
+
+Apply the strategy to a given sudoku puzzle
+
+**Arguments**:
+
+- `puzzle` _Puzzle[T]_ - The sudoku puzzle
+  
+
+**Returns**:
+
+- `int` - The number of candidates eliminated by the strategy with a
+  single pass over the sudoku puzzle
+
+<a name="sudoku.strategies.naked_subset"></a>
+# sudoku.strategies.naked\_subset
+
+<a name="sudoku.strategies.naked_subset.NakedSubset"></a>
 ## NakedSubset Objects
 
 ```python
@@ -49,7 +86,7 @@ class NakedSubset(Strategy)
 
 Apply the [Naked Subset](http://sudopedia.enjoysudoku.com/Naked_Subset.html) strategy
 
-<a name="sudoku.strategies.NakedSingle"></a>
+<a name="sudoku.strategies.naked_subset.NakedSingle"></a>
 ## NakedSingle Objects
 
 ```python
@@ -58,7 +95,7 @@ class NakedSingle(NakedSubset)
 
 The [Naked Single](http://sudopedia.enjoysudoku.com/Naked_Single.html) strategy
 
-<a name="sudoku.strategies.ForcedDigit"></a>
+<a name="sudoku.strategies.naked_subset.ForcedDigit"></a>
 ## ForcedDigit Objects
 
 ```python
@@ -67,7 +104,7 @@ class ForcedDigit(NakedSingle)
 
 Alias for the [[NakedSingle]] strategy
 
-<a name="sudoku.strategies.SoleCandidate"></a>
+<a name="sudoku.strategies.naked_subset.SoleCandidate"></a>
 ## SoleCandidate Objects
 
 ```python
@@ -76,7 +113,7 @@ class SoleCandidate(NakedSingle)
 
 Alias for the [[NakedSingle]] strategy
 
-<a name="sudoku.strategies.NakedDouble"></a>
+<a name="sudoku.strategies.naked_subset.NakedDouble"></a>
 ## NakedDouble Objects
 
 ```python
@@ -85,7 +122,7 @@ class NakedDouble(NakedSubset)
 
 Apply the [Naked Double](http://sudopedia.enjoysudoku.com/Naked_Double.html) strategy
 
-<a name="sudoku.strategies.NakedTriple"></a>
+<a name="sudoku.strategies.naked_subset.NakedTriple"></a>
 ## NakedTriple Objects
 
 ```python
@@ -94,7 +131,7 @@ class NakedTriple(NakedSubset)
 
 Apply the [Naked Triple](http://sudopedia.enjoysudoku.com/Naked_Triple.html) strategy
 
-<a name="sudoku.strategies.NakedQuad"></a>
+<a name="sudoku.strategies.naked_subset.NakedQuad"></a>
 ## NakedQuad Objects
 
 ```python
@@ -102,15 +139,6 @@ class NakedQuad(NakedSubset)
 ```
 
 Apply the [Naked Quad](http://sudopedia.enjoysudoku.com/Naked_Quad.html) strategy
-
-<a name="sudoku.strategies.strategies"></a>
-#### strategies
-
-```python
-strategies(order: int)
-```
-
-Generator for strategies from simple to complex with a given order
 
 <a name="sudoku.puzzle"></a>
 # sudoku.puzzle
@@ -145,23 +173,19 @@ class Tokens(List[T])
 A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
 which are the respective indices of this list.
 
-**Arguments**:
-
-- `List` _[type]_ - [description]
-
 <a name="sudoku.puzzle.Puzzle.Tokens.swap"></a>
 #### swap
 
 ```python
- | swap(i: Value, j: Value)
+ | swap(i: int, j: int)
 ```
 
 Switch the positions of two sets of tokens in the puzzle by switching their respective aliases.
 
 **Arguments**:
 
-- `i` _Value_ - The integer alias value associated with a token
-- `j` _Value_ - The integer alias value associated with a token
+- `i` _int_ - The integer alias value associated with a token
+- `j` _int_ - The integer alias value associated with a token
 
 <a name="sudoku.puzzle.Puzzle.Tokens.shuffle"></a>
 #### shuffle
@@ -184,8 +208,8 @@ The class for an individual cell in the sudoku puzzle
 **Attributes**:
 
 - `puzzle` _Puzzle[T]_ - The corresponding sudoku puzzle
-- `candidates` _Set[Value]_ - A set of the cell's remaining candidates
-- `value` _Value_ - The value of the sudoku cell or 0 if it is blank.
+- `candidates` _Set[int]_ - A set of the cell's remaining candidates
+- `value` _int_ - The value of the sudoku cell or 0 if it is blank.
 
 <a name="sudoku.puzzle.Puzzle.Cell.is_blank"></a>
 #### is\_blank
@@ -217,7 +241,7 @@ A method to determine if the board has any conflicting cells
 #### \_\_init\_\_
 
 ```python
- | __init__(iterable: Iterable[T], blank: T)
+ | __init__(iterable: Iterable[T], blank: T = None)
 ```
 
 The object can be constructed with a 1-dimensional board:
@@ -355,14 +379,19 @@ Check whether the puzzle is solved
 #### solve
 
 ```python
- | solve() -> Dict[str, int]
+ | solve(solver: Solver = StrategySolver) -> bool
 ```
 
-Solve the puzzle using strategies
+Solve the puzzle using one of the solvers
+
+**Arguments**:
+
+- `solver` _Solver, optional_ - The solver used to solve the puzzle. Defaults to StrategySolver.
+  
 
 **Returns**:
 
-  Dict[str, int]: A dict containing the number of candidates eliminated by each strategy
+- `bool` - A boolean value indicating whether the puzzle could be solved
 
 <a name="sudoku.puzzle.Puzzle.has_solution"></a>
 #### has\_solution
@@ -390,8 +419,63 @@ Calculate the difficulty of solving the puzzle
 
 - `float` - A difficulty rating between 0 and 1
 
-<a name="sudoku.types"></a>
-# sudoku.types
+<a name="sudoku.solvers"></a>
+# sudoku.solvers
+
+<a name="sudoku.solvers.solver"></a>
+# sudoku.solvers.solver
+
+<a name="sudoku.solvers.solver.Solver"></a>
+## Solver Objects
+
+```python
+class Solver()
+```
+
+<a name="sudoku.solvers.solver.Solver.solve"></a>
+#### solve
+
+```python
+ | solve(puzzle: Puzzle[T]) -> None
+```
+
+Solve the puzzle in place.
+
+**Arguments**:
+
+- `puzzle` _Puzzle_ - The puzzle to be solved.
+
+<a name="sudoku.solvers.strategy_solver"></a>
+# sudoku.solvers.strategy\_solver
+
+<a name="sudoku.solvers.strategy_solver.essential_strategies"></a>
+#### essential\_strategies
+
+```python
+essential_strategies(order: int) -> Generator[Strategy]
+```
+
+Generator for strategies from simple to complex with a given order
+
+<a name="sudoku.solvers.strategy_solver.StrategySolver"></a>
+## StrategySolver Objects
+
+```python
+class StrategySolver(Solver)
+```
+
+<a name="sudoku.solvers.strategy_solver.StrategySolver.solve"></a>
+#### solve
+
+```python
+ | solve(puzzle: Puzzle[T]) -> bool
+```
+
+Solve the puzzle using strategies
+
+**Returns**:
+
+- `bool` - A boolean value indicating whether the puzzle could be solved
 
 <a name="sudoku.examples"></a>
 # sudoku.examples
