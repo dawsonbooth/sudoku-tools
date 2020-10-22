@@ -26,15 +26,6 @@ The object can be constructed with a 1-dimensional board:
 arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
 puzzle = Puzzle(arr_1d, 0)
 ```
-... or with a 2-dimensional board:
-
-```python
-arr_2d = [[1, 0, 3, 4],
-	[0, 4, 1, 0],
-	[0, 3, 0, 1],
-	[4, 0, 2, 3]]
-puzzle = Puzzle(arr_2d, 0)
-```
 
 Feel free to [check out the docs](https://dawsonbooth.github.io/sudoku-tools/) for more information.
 
