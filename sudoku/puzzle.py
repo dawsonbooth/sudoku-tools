@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import itertools
 import random
 from collections import defaultdict
 from copy import deepcopy
@@ -185,39 +184,26 @@ class Puzzle(Generic[T]):
                         return True
         return False
 
-    def __init__(self, iterable: Iterable[T], blank: T = None):
+    def __init__(self, puzzle: Iterable[T], blank: T = None):
         """
-        The object can be constructed with a 1-dimensional board:
+        The object can be constructed with any 1-dimensional iterable:
         ```python
         arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
         puzzle = Puzzle(arr_1d, 0)
         ```
-        ... or with a 2-dimensional board:
-        ```python
-        arr_2d = [[1, 0, 3, 4],
-                [0, 4, 1, 0],
-                [0, 3, 0, 1],
-                [4, 0, 2, 3]]
-        puzzle = Puzzle(arr_2d, 0)
-        ```
 
         Args:
-            iterable (Iterable[T]): An iterable representing a Sudoku board
+            puzzle (Iterable[T]): An iterable representing a Sudoku puzzle
             blank (T): The value used to represent a blank cell
         """
-        iterable = list(itertools.chain.from_iterable(iterable))
-
         if blank is None:
-            if type(iterable[0]) == str:
-                blank = "."
-            else:
-                blank = type(iterable[0])()
+            blank = type(T)()
 
-        self.order = int(len(iterable) ** .5)
+        self.order = int(len(puzzle) ** .5)
         self.tokens = self.Tokens(blank)
-        self.cells = np.empty(len(iterable), dtype=object)
+        self.cells = np.empty(len(puzzle), dtype=object)
 
-        for i, token in enumerate(iterable):
+        for i, token in enumerate(puzzle):
             try:
                 v = self.tokens.index(token)
             except ValueError:

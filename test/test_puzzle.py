@@ -141,13 +141,13 @@ prompts = {
 
 def test_1d_array():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["1D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         assert puzzle.to_1D() == prompts["1D"][order]
 
 
 def test_2d_array():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["2D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         assert puzzle.to_2D() == prompts["2D"][order]
 
 
@@ -166,7 +166,7 @@ def test_formatted_string():
 
 def test_rotate():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["2D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         puzzle.rotate(5)
         assert puzzle.to_2D() == prompts["rotated"][order]
         puzzle.rotate(3)
@@ -178,7 +178,7 @@ def test_rotate():
 
 def test_reflect():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["2D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         puzzle.reflect()
         assert puzzle.to_2D() == prompts["horizontal"][order]
         puzzle.reflect()
@@ -189,7 +189,7 @@ def test_reflect():
 
 def test_transpose():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["2D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         puzzle.transpose()
         assert puzzle.to_2D() == prompts["transpose"][order]
         assert puzzle.has_solution()
@@ -197,6 +197,6 @@ def test_transpose():
 
 def test_shuffle():
     for order in ("4", "9"):
-        puzzle = Puzzle(prompts["2D"][order], ".")
+        puzzle = Puzzle(prompts["string"][order], ".")
         puzzle.shuffle()
         assert puzzle.has_solution()
