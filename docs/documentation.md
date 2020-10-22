@@ -241,27 +241,19 @@ A method to determine if the board has any conflicting cells
 #### \_\_init\_\_
 
 ```python
- | __init__(iterable: Iterable[T], blank: T = None)
+ | __init__(puzzle: Iterable[T], blank: T = None)
 ```
 
-The object can be constructed with a 1-dimensional board:
-... or with a 2-dimensional board:
+The object can be constructed with any 1-dimensional iterable:
 
 ```python
 arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]
 puzzle = Puzzle(arr_1d, 0)
 ```
-```python
-arr_2d = [[1, 0, 3, 4],
-        [0, 4, 1, 0],
-        [0, 3, 0, 1],
-        [4, 0, 2, 3]]
-puzzle = Puzzle(arr_2d, 0)
-```
 
 **Arguments**:
 
-- `iterable` _Iterable[T]_ - An iterable representing a Sudoku board
+- `puzzle` _Iterable[T]_ - An iterable representing a Sudoku puzzle
 - `blank` _T_ - The value used to represent a blank cell
 
 <a name="sudoku.puzzle.Puzzle.reflect"></a>
