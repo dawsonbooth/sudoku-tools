@@ -410,34 +410,33 @@ class Puzzle(Generic[T]):
             float: A difficulty rating between 0 and 1
         """
         if self.is_solved():
-            return 0
+            return 0.0
         if self.has_conflicts():
-            return -1
+            return 1.0
 
         strategy_eliminations = defaultdict(int)
 
         puzzle_copy = deepcopy(self)
 
         while not puzzle_copy.is_solved():
-            changed = False
+            changes_made = False
 
             for strategy in essential_strategies(puzzle_copy.order):
                 eliminations = strategy(puzzle_copy)
+                strategy_eliminations[strategy.name] += eliminations
 
                 if eliminations > 0:
-                    strategy_eliminations[strategy.name] += eliminations
-                    changed = True
+                    changes_made = True
                     break
-            if not changed:
-                return -1
+            if not changes_made:
+                return 1.0
 
-        difficulties = dict(
-            (strategy.name, strategy.difficulty) for strategy in essential_strategies(self.order)
-        )
+        max_eliminations = self.order ** 3 - self.order ** 2
 
-        rating = 0
-        for strategy, eliminations in strategy_eliminations.items():
-            rating += difficulties[strategy] * eliminations / \
-                (self.order ** 2 * (self.order - 1))
+        rating = 0.0
+        for strategy in essential_strategies(self.order):
+            difficulty = strategy.difficulty
+            eliminations = strategy_eliminations[strategy.name]
+            rating += difficulty * (eliminations / max_eliminations)
 
         return rating
