@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://dawsonbooth.github.io/sudoku-tools/</loc>
-     <lastmod>2020-10-20</lastmod>
+     <lastmod>2021-04-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dawsonbooth.github.io/sudoku-tools/documentation/</loc>
-     <lastmod>2020-10-20</lastmod>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/puzzle/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/examples/boards/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/examples/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/examples/rate/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/examples/shuffle/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/examples/solve/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/solvers/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/solvers/solver/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/solvers/strategy_solver/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/strategies/hidden_subset/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/strategies/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/strategies/naked_subset/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/strategies/refresh_candidates/</loc>
+     <lastmod>2021-04-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/strategies/strategy/</loc>
+     <lastmod>2021-04-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

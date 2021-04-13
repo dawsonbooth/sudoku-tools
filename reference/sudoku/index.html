@@ -1,0 +1,2615 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://dawsonbooth.github.io/sudoku-tools/reference/sudoku/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Index - sudoku-tools</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546d78">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-sudoku" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://dawsonbooth.github.io/sudoku-tools/" title="sudoku-tools" class="md-header-nav__button md-logo" aria-label="sudoku-tools">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            sudoku-tools
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Index
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/dawsonbooth/sudoku-tools/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sudoku-tools
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://dawsonbooth.github.io/sudoku-tools/" title="sudoku-tools" class="md-nav__button md-logo" aria-label="sudoku-tools">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    sudoku-tools
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/dawsonbooth/sudoku-tools/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sudoku-tools
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Sudoku
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Sudoku" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Sudoku
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Index
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Index" class="md-nav__link md-nav__link--active">
+      Index
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-modules" class="md-nav__link">
+    Sub-modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puzzle" class="md-nav__link">
+    Puzzle
+  </a>
+  
+    <nav class="md-nav" aria-label="Puzzle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_conflicts" class="md-nav__link">
+    has_conflicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_solution" class="md-nav__link">
+    has_solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_solved" class="md-nav__link">
+    is_solved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate" class="md-nav__link">
+    rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflect" class="md-nav__link">
+    reflect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotate" class="md-nav__link">
+    rotate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shuffle" class="md-nav__link">
+    shuffle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solve" class="md-nav__link">
+    solve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_1d" class="md-nav__link">
+    to_1D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_2d" class="md-nav__link">
+    to_2D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_formatted_string" class="md-nav__link">
+    to_formatted_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_string" class="md-nav__link">
+    to_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose" class="md-nav__link">
+    transpose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="puzzle/" title="Puzzle" class="md-nav__link">
+      Puzzle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      Examples
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Examples" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        <span class="md-nav__icon md-icon"></span>
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/boards/" title="Boards" class="md-nav__link">
+      Boards
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/rate/" title="Rate" class="md-nav__link">
+      Rate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/shuffle/" title="Shuffle" class="md-nav__link">
+      Shuffle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples/solve/" title="Solve" class="md-nav__link">
+      Solve
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      Solvers
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Solvers" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        <span class="md-nav__icon md-icon"></span>
+        Solvers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="solvers/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="solvers/solver/" title="Solver" class="md-nav__link">
+      Solver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="solvers/strategy_solver/" title="Strategy Solver" class="md-nav__link">
+      Strategy Solver
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      Strategies
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Strategies" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        <span class="md-nav__icon md-icon"></span>
+        Strategies
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="strategies/hidden_subset/" title="Hidden Subset" class="md-nav__link">
+      Hidden Subset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="strategies/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="strategies/naked_subset/" title="Naked Subset" class="md-nav__link">
+      Naked Subset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="strategies/refresh_candidates/" title="Refresh Candidates" class="md-nav__link">
+      Refresh Candidates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="strategies/strategy/" title="Strategy" class="md-nav__link">
+      Strategy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-modules" class="md-nav__link">
+    Sub-modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puzzle" class="md-nav__link">
+    Puzzle
+  </a>
+  
+    <nav class="md-nav" aria-label="Puzzle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_conflicts" class="md-nav__link">
+    has_conflicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_solution" class="md-nav__link">
+    has_solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_solved" class="md-nav__link">
+    is_solved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate" class="md-nav__link">
+    rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflect" class="md-nav__link">
+    reflect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotate" class="md-nav__link">
+    rotate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shuffle" class="md-nav__link">
+    shuffle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solve" class="md-nav__link">
+    solve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_1d" class="md-nav__link">
+    to_1D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_2d" class="md-nav__link">
+    to_2D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_formatted_string" class="md-nav__link">
+    to_formatted_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_string" class="md-nav__link">
+    to_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose" class="md-nav__link">
+    transpose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dawsonbooth/sudoku-tools/blob/master/reference/sudoku/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-sudoku">Module sudoku<a class="headerlink" href="#module-sudoku" title="Permanent link">&para;</a></h1>
+<p>None</p>
+<p>None</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">.puzzle</span> <span class="kn">import</span> <span class="n">Puzzle</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Puzzle&quot;</span><span class="p">,)</span>
+</code></pre></div>
+
+</details>
+<h2 id="sub-modules">Sub-modules<a class="headerlink" href="#sub-modules" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="examples/">sudoku.examples</a></li>
+<li><a href="puzzle/">sudoku.puzzle</a></li>
+<li><a href="solvers/">sudoku.solvers</a></li>
+<li><a href="strategies/">sudoku.strategies</a></li>
+</ul>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h3 id="puzzle">Puzzle<a class="headerlink" href="#puzzle" title="Permanent link">&para;</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Puzzle</span><span class="p">(</span>
+    <span class="n">puzzle</span><span class="p">:</span> <span class="s1">&#39;Sequence[T]&#39;</span><span class="p">,</span>
+    <span class="n">blank</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generic</td>
+<td>T</td>
+<td>The base type for each token in the sudoku puzzle</td>
+<td>None</td>
+</tr>
+<tr>
+<td>tokens</td>
+<td>Tokens</td>
+<td>A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,</td>
+<td></td>
+</tr>
+<tr>
+<td>which are the respective indices of this list.</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>order</td>
+<td>int</td>
+<td>The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,</td>
+<td></td>
+</tr>
+<tr>
+<td>this value is 9.</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cells</td>
+<td>List[Cell]</td>
+<td>A list of all the cells in the sudoku puzzle.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">Puzzle</span><span class="p">(</span><span class="n">Generic</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    The base class for a sudoku puzzle.</span>
+
+<span class="ss">    ```</span>
+
+<span class="ss">    Args:</span>
+
+<span class="ss">        Generic (T): The base type for each token in the sudoku puzzle</span>
+
+<span class="ss">    Attributes:</span>
+
+<span class="ss">        tokens (Tokens): A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,</span>
+
+<span class="ss">            which are the respective indices of this list.</span>
+
+<span class="ss">        order (int): The number of unique tokens in use in the puzzle. For the common 9x9 sudoku puzzle,</span>
+
+<span class="ss">            this value is 9.</span>
+
+<span class="ss">        cells (List[Cell]): A list of all the cells in the sudoku puzzle.</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">__slots__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;order&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;tokens&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;cells&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">order</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">tokens</span><span class="p">:</span><span class="w"> </span><span class="n">Tokens</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">cells</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">Cell</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="n">Tokens</span><span class="p">(</span><span class="n">List</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,</span>
+
+<span class="ss">        which are the respective indices of this list.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">i</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="p">,</span><span class="w"> </span><span class="nl">j</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">            Switch the positions of two sets of tokens in the puzzle by switching their respective aliases.</span>
+
+<span class="ss">            Args:</span>
+
+<span class="ss">                i (int): The integer alias value associated with a token</span>
+
+<span class="ss">                j (int): The integer alias value associated with a token</span>
+
+<span class="ss">            &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="n">shuffle</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">            Randomly swap the tokens in the puzzle by randomizing their integer aliases.</span>
+
+<span class="ss">            &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="o">[</span><span class="n">1:</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">random</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="o">[</span><span class="n">1:</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nl">Cell</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        The class for an individual cell in the sudoku puzzle</span>
+
+<span class="ss">        Attributes:</span>
+
+<span class="ss">            puzzle (Puzzle): The corresponding sudoku puzzle</span>
+
+<span class="ss">            candidates (Set[int]): A set of the cell&#39;s remaining candidates</span>
+
+<span class="ss">            value (int): The value of the sudoku cell or 0 if it is blank.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">__slots__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;puzzle&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;candidates&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">puzzle</span><span class="p">:</span><span class="w"> </span><span class="n">Puzzle</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">candidates</span><span class="p">:</span><span class="w"> </span><span class="k">Set</span><span class="o">[</span><span class="n">int</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">puzzle</span><span class="p">:</span><span class="w"> </span><span class="n">Puzzle</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">puzzle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puzzle</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">puzzle</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">@property</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="k">value</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">int</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">next</span><span class="p">(</span><span class="n">iter</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">@value</span><span class="p">.</span><span class="n">setter</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="k">value</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">puzzle</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="k">value</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">def</span><span class="w"> </span><span class="n">is_blank</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">            Check whether the cell is blank or has a value.</span>
+
+<span class="ss">            Returns:</span>
+
+<span class="ss">                bool: A boolean value for whether the cell is blank.</span>
+
+<span class="ss">            &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">candidates</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_box</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">edgeRow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="k">row</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">edgeCol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edgeRow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edgeCol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">boxWidth</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_row</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nl">col</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_col</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">row</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_peers</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">edgeM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="k">row</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">edgeN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">set</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edgeM</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edgeN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">boxWidth</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nl">col</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">peers</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">peers</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">row</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">peers</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">peers</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">peers</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">yield</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">peers</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_blank</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">indices</span><span class="o">=</span><span class="k">None</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">indices</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">indices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">indices</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="n">is_blank</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">yield</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">cell</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">has_conflicts</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method to determine if the board has any conflicting cells</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            bool: True if the board has conflicts, False otherwise</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">cell</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="n">is_blank</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">_peers</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">peer</span><span class="p">.</span><span class="n">is_blank</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="k">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">peer</span><span class="p">.</span><span class="k">value</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">puzzle</span><span class="p">:</span><span class="w"> </span><span class="k">Sequence</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="nl">blank</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        The object can be constructed with any 1-dimensional iterable:</span>
+
+<span class="ss">        ```python</span>
+
+<span class="ss">        arr_1d = [1, 0, 3, 4, 0, 4, 1, 0, 0, 3, 0, 1, 4, 0, 2, 3]</span>
+
+<span class="ss">        puzzle = Puzzle(arr_1d, 0)</span>
+
+<span class="ss">        ```</span>
+
+<span class="ss">        Args:</span>
+
+<span class="ss">            puzzle (Sequence[T]): A sequence representing a Sudoku puzzle</span>
+
+<span class="ss">            blank (T): The value used to represent a blank cell</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">puzzle</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">Tokens</span><span class="p">(</span><span class="o">[</span><span class="n">blank</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">puzzle</span><span class="p">),</span><span class="w"> </span><span class="n">dtype</span><span class="o">=</span><span class="k">object</span><span class="p">).</span><span class="n">tolist</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">puzzle</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">try</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">tokens</span><span class="p">.</span><span class="k">index</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="ow">except</span><span class="w"> </span><span class="nl">ValueError</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">tokens</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">tokens</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">Cell</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nl">indices</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">indices[0</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">indices</span><span class="p">))</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">indices[i - 1</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">indices[i</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="o">[</span><span class="n">indices[-1</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">reflect</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">direction</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;horizontal&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Reflect the Sudoku board horizontally or vertically</span>
+
+<span class="ss">        Args:</span>
+
+<span class="ss">            direction (str): The direction over which to reflect. Defaults to &quot;</span><span class="n">horizontal</span><span class="ss">&quot;.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;horizontal&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">rotations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Rotate the Sudoku board clockwise a given number in times.</span>
+
+<span class="ss">        Args:</span>
+
+<span class="ss">            rotations (int): The number in clockwise rotations to be performed.</span>
+
+<span class="ss">                This value may be negative and is rounded to the nearest integer.</span>
+
+<span class="ss">                Defaults to 1.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">isinstance</span><span class="p">(</span><span class="n">rotations</span><span class="p">,</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">rotations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">rotations</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">rotations</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">elif</span><span class="w"> </span><span class="n">rotations</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">elif</span><span class="w"> </span><span class="n">rotations</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rotations</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotations</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">transpose</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Switch the rows and columns in the Sudoku board</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">shuffle</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Shuffle the board using rotations, reflections, and token-swapping</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">tokens</span><span class="p">.</span><span class="n">shuffle</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">reflect</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">((</span><span class="ss">&quot;horizontal&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;vertical&quot;</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="k">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_1D</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a 1-dimensional array</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            List[T]: A 1D array of the Sudoku board in the board&#39;s original type</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">self.tokens[c.value</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_2D</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">List[T</span><span class="o">]</span><span class="err">]:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a 2-dimensional array</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            List[T]: A 2D array of the Sudoku board in the board&#39;s original type</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">to_1D</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)).</span><span class="n">tolist</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a string</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            str: A string representation in the Sudoku board</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ss">&quot;&quot;</span><span class="p">.</span><span class="k">join</span><span class="p">((</span><span class="nf">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">to_1D</span><span class="p">()))</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_formatted_string</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_corner</span><span class="o">=</span><span class="ss">&quot;┼&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_corner</span><span class="o">=</span><span class="ss">&quot;╬&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_left_corner</span><span class="o">=</span><span class="ss">&quot;╔&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_right_corner</span><span class="o">=</span><span class="ss">&quot;╗&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_left_corner</span><span class="o">=</span><span class="ss">&quot;╚&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_right_corner</span><span class="o">=</span><span class="ss">&quot;╝&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_top_tower_corner</span><span class="o">=</span><span class="ss">&quot;╦&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_bottom_tower_corner</span><span class="o">=</span><span class="ss">&quot;╩&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_left_floor_corner</span><span class="o">=</span><span class="ss">&quot;╠&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_right_floor_corner</span><span class="o">=</span><span class="ss">&quot;╣&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_horizontal_border</span><span class="o">=</span><span class="ss">&quot;─&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_horizontal_border</span><span class="o">=</span><span class="ss">&quot;═&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_vertical_border</span><span class="o">=</span><span class="ss">&quot;│&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_vertical_border</span><span class="o">=</span><span class="ss">&quot;║&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">blank</span><span class="o">=</span><span class="ss">&quot; &quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a formatted string</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            str: A formatted string representing the Sudoku board</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">token_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">len(str(t)) for t in self.tokens</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">top_left_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">inner_top_tower_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">top_right_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">bottom_left_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">inner_bottom_tower_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">bottom_right_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">floor_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">inner_left_floor_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">box_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">inner_right_floor_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bar_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">box_vertical_border</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">cell_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">cell_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cell_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_vertical_border</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{top_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="k">value</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{self.tokens[v] if not c.is_blank() else blank} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{bottom_border}&quot;</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{floor_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{bar_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{cell_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">formatted_str</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">is_solved</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Check whether the puzzle is solved</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            bool: A boolean value indicating whether the puzzle is solved</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">any</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">is_blank</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">has_conflicts</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">solver</span><span class="p">:</span><span class="w"> </span><span class="n">Type</span><span class="o">[</span><span class="n">Solver</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StrategySolver</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Solve the puzzle using one of the solvers</span>
+
+<span class="ss">        Args:</span>
+
+<span class="ss">            solver (Solver, optional): The solver used to solve the puzzle. Defaults to StrategySolver.</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            bool: A boolean value indicating whether the puzzle could be solved</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">solver</span><span class="p">().</span><span class="n">solve</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">has_solution</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Check whether the puzzle is able to be solved</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            bool: A boolean value indicating whether the puzzle has a solution</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">deepcopy</span><span class="p">(</span><span class="n">self</span><span class="p">).</span><span class="n">solve</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">rate</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">float</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Calculate the difficulty of solving the puzzle</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            float: A difficulty rating between 0 and 1</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">is_solved</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">has_conflicts</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">strategy_eliminations</span><span class="p">:</span><span class="w"> </span><span class="n">DefaultDict</span><span class="o">[</span><span class="n">str, int</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">defaultdict</span><span class="p">(</span><span class="nc">int</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">puzzle_copy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deepcopy</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">puzzle_copy</span><span class="p">.</span><span class="n">is_solved</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">changes_made</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">essential_strategies</span><span class="p">(</span><span class="n">puzzle_copy</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">eliminations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">(</span><span class="n">puzzle_copy</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">strategy_eliminations</span><span class="o">[</span><span class="n">strategy.name</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">eliminations</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">eliminations</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">changes_made</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">                    </span><span class="k">break</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nl">changes_made</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">max_eliminations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">essential_strategies</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">difficulty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">.</span><span class="n">difficulty</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">eliminations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy_eliminations</span><span class="o">[</span><span class="n">strategy.name</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">rating</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">difficulty</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">eliminations</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">max_eliminations</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rating</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<hr />
+<h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
+<ul>
+<li>typing.Generic</li>
+</ul>
+<h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Cell</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Tokens</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="instance-variables">Instance variables<a class="headerlink" href="#instance-variables" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">cells</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">order</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">tokens</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
+<h4 id="has_conflicts">has_conflicts<a class="headerlink" href="#has_conflicts" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">has_conflicts</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;bool&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>A method to determine if the board has any conflicting cells</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>True if the board has conflicts, False otherwise</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">has_conflicts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb nb-Type">bool</span><span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        A method to determine if the board has any conflicting cells</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            bool: True if the board has conflicts, False otherwise</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cell</span><span class="o">.</span><span class="n">is_blank</span><span class="p">():</span>
+
+                <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">peer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peers</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">peer</span><span class="o">.</span><span class="n">is_blank</span><span class="p">()</span> <span class="ow">and</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">peer</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+                        <span class="k">return</span> <span class="n">True</span>
+
+        <span class="k">return</span> <span class="n">False</span>
+</code></pre></div>
+
+</details>
+<h4 id="has_solution">has_solution<a class="headerlink" href="#has_solution" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">has_solution</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;bool&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Check whether the puzzle is able to be solved</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>A boolean value indicating whether the puzzle has a solution</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">has_solution</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bool</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Check whether the puzzle is able to be solved</span>
+
+<span class="s">        Returns:</span>
+
+<span class="s">            bool: A boolean value indicating whether the puzzle has a solution</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="kr">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="kr">self</span><span class="p">).</span><span class="n">solve</span><span class="p">()</span>
+</code></pre></div>
+
+</details>
+<h4 id="is_solved">is_solved<a class="headerlink" href="#is_solved" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_solved</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;bool&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Check whether the puzzle is solved</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>A boolean value indicating whether the puzzle is solved</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">is_solved</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">bool</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Check whether the puzzle is solved</span>
+
+<span class="s">        Returns:</span>
+
+<span class="s">            bool: A boolean value indicating whether the puzzle is solved</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="kr">return</span> <span class="kr">not</span> <span class="kr">any</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">is_blank</span><span class="p">()</span> <span class="n">for</span> <span class="n">c</span> <span class="kr">in</span> <span class="kr">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span> <span class="kr">and</span> <span class="kr">not</span> <span class="kr">self</span><span class="p">.</span><span class="n">has_conflicts</span><span class="p">()</span>
+</code></pre></div>
+
+</details>
+<h4 id="rate">rate<a class="headerlink" href="#rate" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rate</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;float&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Calculate the difficulty of solving the puzzle</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>A difficulty rating between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">rate</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">float</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Calculate the difficulty of solving the puzzle</span>
+
+<span class="s">        Returns:</span>
+
+<span class="s">            float: A difficulty rating between 0 and 1</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="nf">if</span> <span class="kr">self</span><span class="p">.</span><span class="n">is_solved</span><span class="p">()</span><span class="o">:</span>
+
+            <span class="kr">return</span> <span class="mf">0.0</span>
+
+        <span class="nf">if</span> <span class="kr">self</span><span class="p">.</span><span class="n">has_conflicts</span><span class="p">()</span><span class="o">:</span>
+
+            <span class="kr">return</span> <span class="mf">1.0</span>
+
+        <span class="n">strategy_eliminations</span><span class="o">:</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="n">str</span><span class="p">,</span> <span class="n">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+
+        <span class="n">puzzle_copy</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span>
+
+        <span class="n">while</span> <span class="kr">not</span> <span class="n">puzzle_copy</span><span class="p">.</span><span class="n">is_solved</span><span class="p">()</span><span class="o">:</span>
+
+            <span class="n">changes_made</span> <span class="o">=</span> <span class="kr">False</span>
+
+            <span class="n">for</span> <span class="n">strategy</span> <span class="kr">in</span> <span class="n">essential_strategies</span><span class="p">(</span><span class="n">puzzle_copy</span><span class="p">.</span><span class="n">order</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">eliminations</span> <span class="o">=</span> <span class="n">strategy</span><span class="p">(</span><span class="n">puzzle_copy</span><span class="p">)</span>
+
+                <span class="n">strategy_eliminations</span><span class="p">[</span><span class="n">strategy</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="n">eliminations</span>
+
+                <span class="nf">if</span> <span class="n">eliminations</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">:</span>
+
+                    <span class="n">changes_made</span> <span class="o">=</span> <span class="kr">True</span>
+
+                    <span class="n">break</span>
+
+            <span class="nf">if</span> <span class="kr">not</span> <span class="n">changes_made</span><span class="o">:</span>
+
+                <span class="kr">return</span> <span class="mf">1.0</span>
+
+        <span class="n">max_eliminations</span> <span class="o">=</span> <span class="kr">self</span><span class="p">.</span><span class="n">order</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">-</span> <span class="kr">self</span><span class="p">.</span><span class="n">order</span> <span class="o">**</span> <span class="mi">2</span>
+
+        <span class="n">rating</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="n">for</span> <span class="n">strategy</span> <span class="kr">in</span> <span class="n">essential_strategies</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="n">order</span><span class="p">)</span><span class="o">:</span>
+
+            <span class="n">difficulty</span> <span class="o">=</span> <span class="n">strategy</span><span class="p">.</span><span class="n">difficulty</span>
+
+            <span class="n">eliminations</span> <span class="o">=</span> <span class="n">strategy_eliminations</span><span class="p">[</span><span class="n">strategy</span><span class="p">.</span><span class="n">name</span><span class="p">]</span>
+
+            <span class="n">rating</span> <span class="o">+=</span> <span class="n">difficulty</span> <span class="o">*</span> <span class="p">(</span><span class="n">eliminations</span> <span class="o">/</span> <span class="n">max_eliminations</span><span class="p">)</span>
+
+        <span class="kr">return</span> <span class="n">rating</span>
+</code></pre></div>
+
+</details>
+<h4 id="reflect">reflect<a class="headerlink" href="#reflect" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">reflect</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="o">=</span> <span class="s1">&#39;horizontal&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;None&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Reflect the Sudoku board horizontally or vertically</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>str</td>
+<td>The direction over which to reflect. Defaults to "horizontal".</td>
+<td>"horizontal"</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">reflect</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span> <span class="n">direction</span><span class="o">:</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;horizontal&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">None</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Reflect the Sudoku board horizontally or vertically</span>
+
+<span class="s">        Args:</span>
+
+<span class="s">            direction (str): The direction over which to reflect. Defaults to &quot;</span><span class="n">horizontal</span><span class="s">&quot;.</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="kr">self</span><span class="p">.</span><span class="n">order</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">n</span> <span class="c1">// 2</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="nf">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s">&quot;horizontal&quot;</span><span class="o">:</span>
+
+            <span class="n">for</span> <span class="n">i</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">for</span> <span class="n">j</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">:</span>
+
+                    <span class="kr">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">j</span><span class="p">))</span>
+
+        <span class="n">else</span><span class="o">:</span>
+
+            <span class="n">for</span> <span class="n">i</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">for</span> <span class="n">j</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+
+                    <span class="kr">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h4 id="rotate">rotate<a class="headerlink" href="#rotate" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">rotations</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;None&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Rotate the Sudoku board clockwise a given number in times.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rotations</td>
+<td>int</td>
+<td>The number in clockwise rotations to be performed.</td>
+<td></td>
+</tr>
+<tr>
+<td>This value may be negative and is rounded to the nearest integer.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Defaults to 1.</td>
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">rotate</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span> <span class="n">rotations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">None</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Rotate the Sudoku board clockwise a given number in times.</span>
+
+<span class="s">        Args:</span>
+
+<span class="s">            rotations (int): The number in clockwise rotations to be performed.</span>
+
+<span class="s">                This value may be negative and is rounded to the nearest integer.</span>
+
+<span class="s">                Defaults to 1.</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="nf">if</span> <span class="kr">not</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">rotations</span><span class="p">,</span> <span class="n">int</span><span class="p">)</span><span class="o">:</span>
+
+            <span class="n">rotations</span> <span class="o">=</span> <span class="nf">round</span><span class="p">(</span><span class="n">rotations</span><span class="p">)</span>
+
+        <span class="nf">if</span> <span class="n">rotations</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+
+            <span class="kr">return</span>
+
+        <span class="n">elif</span> <span class="n">rotations</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+
+            <span class="kr">self</span><span class="p">.</span><span class="n">cells</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span>
+
+            <span class="kr">return</span>
+
+        <span class="n">elif</span> <span class="n">rotations</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">:</span>
+
+            <span class="kr">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">rotations</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">else</span><span class="o">:</span>
+
+            <span class="n">n</span> <span class="o">=</span> <span class="kr">self</span><span class="p">.</span><span class="n">order</span>
+
+            <span class="n">x</span> <span class="o">=</span> <span class="n">n</span> <span class="c1">// 2</span>
+
+            <span class="n">y</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+
+            <span class="n">for</span> <span class="n">i</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">for</span> <span class="n">j</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span>
+
+                    <span class="kr">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="kr">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotations</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h4 id="shuffle">shuffle<a class="headerlink" href="#shuffle" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;None&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Shuffle the board using rotations, reflections, and token-swapping</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">shuffle</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">None</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Shuffle the board using rotations, reflections, and token-swapping</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="kr">self</span><span class="p">.</span><span class="n">tokens</span><span class="p">.</span><span class="n">shuffle</span><span class="p">()</span>
+
+        <span class="n">for</span> <span class="n">_</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="kr">self</span><span class="p">.</span><span class="n">order</span> <span class="c1">// 2):</span>
+
+            <span class="kr">self</span><span class="p">.</span><span class="n">reflect</span><span class="p">(</span><span class="nf">random</span><span class="p">.</span><span class="n">choice</span><span class="p">((</span><span class="s">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s">&quot;vertical&quot;</span><span class="p">)))</span>
+
+            <span class="kr">self</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="nf">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+</code></pre></div>
+
+</details>
+<h4 id="solve">solve<a class="headerlink" href="#solve" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">solve</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">solver</span><span class="p">:</span> <span class="s1">&#39;Type[Solver]&#39;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">sudoku</span><span class="o">.</span><span class="n">solvers</span><span class="o">.</span><span class="n">strategy_solver</span><span class="o">.</span><span class="n">StrategySolver</span><span class="s1">&#39;&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;bool&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Solve the puzzle using one of the solvers</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>solver</td>
+<td>Solver</td>
+<td>The solver used to solve the puzzle. Defaults to StrategySolver.</td>
+<td>StrategySolver</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>A boolean value indicating whether the puzzle could be solved</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">solver</span><span class="p">:</span><span class="w"> </span><span class="n">Type</span><span class="o">[</span><span class="n">Solver</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StrategySolver</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Solve the puzzle using one of the solvers</span>
+
+<span class="ss">        Args:</span>
+
+<span class="ss">            solver (Solver, optional): The solver used to solve the puzzle. Defaults to StrategySolver.</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            bool: A boolean value indicating whether the puzzle could be solved</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">solver</span><span class="p">().</span><span class="n">solve</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="to_1d">to_1D<a class="headerlink" href="#to_1d" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_1D</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[T]&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>A method for getting back the Sudoku board as a 1-dimensional array</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List[T]</td>
+<td>A 1D array of the Sudoku board in the board's original type</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_1D</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a 1-dimensional array</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            List[T]: A 1D array of the Sudoku board in the board&#39;s original type</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">self.tokens[c.value</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="err">]</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="to_2d">to_2D<a class="headerlink" href="#to_2d" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_2D</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[List[T]]&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>A method for getting back the Sudoku board as a 2-dimensional array</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List[T]</td>
+<td>A 2D array of the Sudoku board in the board's original type</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_2D</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">List[T</span><span class="o">]</span><span class="err">]:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a 2-dimensional array</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            List[T]: A 2D array of the Sudoku board in the board&#39;s original type</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">to_1D</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="p">)).</span><span class="n">tolist</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="to_formatted_string">to_formatted_string<a class="headerlink" href="#to_formatted_string" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_formatted_string</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">cell_corner</span><span class="o">=</span><span class="s1">&#39;┼&#39;</span><span class="p">,</span>
+    <span class="n">box_corner</span><span class="o">=</span><span class="s1">&#39;╬&#39;</span><span class="p">,</span>
+    <span class="n">top_left_corner</span><span class="o">=</span><span class="s1">&#39;╔&#39;</span><span class="p">,</span>
+    <span class="n">top_right_corner</span><span class="o">=</span><span class="s1">&#39;╗&#39;</span><span class="p">,</span>
+    <span class="n">bottom_left_corner</span><span class="o">=</span><span class="s1">&#39;╚&#39;</span><span class="p">,</span>
+    <span class="n">bottom_right_corner</span><span class="o">=</span><span class="s1">&#39;╝&#39;</span><span class="p">,</span>
+    <span class="n">inner_top_tower_corner</span><span class="o">=</span><span class="s1">&#39;╦&#39;</span><span class="p">,</span>
+    <span class="n">inner_bottom_tower_corner</span><span class="o">=</span><span class="s1">&#39;╩&#39;</span><span class="p">,</span>
+    <span class="n">inner_left_floor_corner</span><span class="o">=</span><span class="s1">&#39;╠&#39;</span><span class="p">,</span>
+    <span class="n">inner_right_floor_corner</span><span class="o">=</span><span class="s1">&#39;╣&#39;</span><span class="p">,</span>
+    <span class="n">cell_horizontal_border</span><span class="o">=</span><span class="s1">&#39;─&#39;</span><span class="p">,</span>
+    <span class="n">box_horizontal_border</span><span class="o">=</span><span class="s1">&#39;═&#39;</span><span class="p">,</span>
+    <span class="n">cell_vertical_border</span><span class="o">=</span><span class="s1">&#39;│&#39;</span><span class="p">,</span>
+    <span class="n">box_vertical_border</span><span class="o">=</span><span class="s1">&#39;║&#39;</span><span class="p">,</span>
+    <span class="n">blank</span><span class="o">=</span><span class="s1">&#39; &#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;str&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>A method for getting back the Sudoku board as a formatted string</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>str</td>
+<td>A formatted string representing the Sudoku board</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">to_formatted_string</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_corner</span><span class="o">=</span><span class="ss">&quot;┼&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_corner</span><span class="o">=</span><span class="ss">&quot;╬&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_left_corner</span><span class="o">=</span><span class="ss">&quot;╔&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_right_corner</span><span class="o">=</span><span class="ss">&quot;╗&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_left_corner</span><span class="o">=</span><span class="ss">&quot;╚&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_right_corner</span><span class="o">=</span><span class="ss">&quot;╝&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_top_tower_corner</span><span class="o">=</span><span class="ss">&quot;╦&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_bottom_tower_corner</span><span class="o">=</span><span class="ss">&quot;╩&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_left_floor_corner</span><span class="o">=</span><span class="ss">&quot;╠&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">inner_right_floor_corner</span><span class="o">=</span><span class="ss">&quot;╣&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_horizontal_border</span><span class="o">=</span><span class="ss">&quot;─&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_horizontal_border</span><span class="o">=</span><span class="ss">&quot;═&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_vertical_border</span><span class="o">=</span><span class="ss">&quot;│&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_vertical_border</span><span class="o">=</span><span class="ss">&quot;║&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">blank</span><span class="o">=</span><span class="ss">&quot; &quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        A method for getting back the Sudoku board as a formatted string</span>
+
+<span class="ss">        Returns:</span>
+
+<span class="ss">            str: A formatted string representing the Sudoku board</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">token_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="o">[</span><span class="n">len(str(t)) for t in self.tokens</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cell_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">box_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">top_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">top_left_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">inner_top_tower_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">top_right_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bottom_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">bottom_left_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">inner_bottom_tower_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">bottom_right_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">floor_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">inner_left_floor_corner</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">box_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">box_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">inner_right_floor_corner</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bar_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">box_vertical_border</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">cell_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">cell_corner</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cell_horizontal_border</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">cell_width</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">box_vertical_border</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{top_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="k">value</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{self.tokens[v] if not c.is_blank() else blank} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cells</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{bottom_border}&quot;</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{floor_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">order</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border}\n{bar_border}\n{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{box_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">formatted_str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{cell_vertical_border} &quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">formatted_str</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="to_string">to_string<a class="headerlink" href="#to_string" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_string</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;str&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>A method for getting back the Sudoku board as a string</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>str</td>
+<td>A string representation in the Sudoku board</td>
+</tr>
+</tbody>
+</table>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">to_string</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">str</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        A method for getting back the Sudoku board as a string</span>
+
+<span class="s">        Returns:</span>
+
+<span class="s">            str: A string representation in the Sudoku board</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="kr">return</span> <span class="s">&quot;&quot;</span><span class="p">.</span><span class="nf">join</span><span class="p">((</span><span class="n">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">for</span> <span class="n">c</span> <span class="kr">in</span> <span class="kr">self</span><span class="p">.</span><span class="n">to_1D</span><span class="p">()))</span>
+</code></pre></div>
+
+</details>
+<h4 id="transpose">transpose<a class="headerlink" href="#transpose" title="Permanent link">&para;</a></h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;None&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Switch the rows and columns in the Sudoku board</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">transpose</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">None</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">        Switch the rows and columns in the Sudoku board</span>
+
+<span class="s">        &quot;&quot;&quot;</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="kr">self</span><span class="p">.</span><span class="n">order</span>
+
+        <span class="n">for</span> <span class="n">i</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+
+            <span class="n">for</span> <span class="n">j</span> <span class="kr">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="kr">self</span><span class="p">.</span><span class="n">_shift_indices</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Overview
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="puzzle/" title="Puzzle" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Puzzle
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
