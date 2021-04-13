@@ -1,10 +1,11 @@
 # `sudoku-tools`
 
-[![](https://img.shields.io/pypi/v/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
-[![](https://img.shields.io/pypi/dw/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
-[![](https://img.shields.io/pypi/pyversions/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
-[![](https://img.shields.io/pypi/format/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
-[![](https://img.shields.io/pypi/l/sudoku-tools.svg?style=flat)](https://github.com/dawsonbooth/sudoku-tools/blob/master/LICENSE)
+[![pypi version](https://img.shields.io/pypi/v/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
+[![downloads](https://pepy.tech/badge/sudoku-tools)](https://pepy.tech/project/sudoku-tools)
+[![build status](https://github.com/dawsonbooth/sudoku-tools/workflows/build/badge.svg)](https://github.com/dawsonbooth/sudoku-tools/actions?workflow=build)
+[![python versions](https://img.shields.io/pypi/pyversions/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
+[![format](https://img.shields.io/pypi/format/sudoku-tools.svg?style=flat)](https://pypi.org/pypi/sudoku-tools/)
+[![license](https://img.shields.io/pypi/l/sudoku-tools.svg?style=flat)](https://github.com/dawsonbooth/sudoku-tools/blob/master/LICENSE)
 
 ## Description
 
@@ -15,7 +16,7 @@ This Python package is a collection of useful tools for generating, grading, sol
 With [Python](https://www.python.org/downloads/) installed, simply run the following command to add the package to your project.
 
 ```bash
-pip install sudoku-tools
+python -m pip install sudoku-tools
 ```
 
 ## Usage
