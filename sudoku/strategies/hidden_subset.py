@@ -13,7 +13,8 @@ class HiddenSubset(Strategy):
     """
     Apply the [Hidden Subset](http://sudopedia.enjoysudoku.com/Hidden_Subset.html) strategy
     """
-    __slots__ = ('size',)
+
+    __slots__ = ("size",)
 
     size: int
 
@@ -29,6 +30,7 @@ class HiddenSubset(Strategy):
         complement_size = puzzle.order - self.size
         if complement_size < self.size:
             from .naked_subset import NakedSubset
+
             return NakedSubset(complement_size)(puzzle)
 
         candidate_eliminations = 0
@@ -37,18 +39,14 @@ class HiddenSubset(Strategy):
                 for house in [puzzle._row, puzzle._col, puzzle._box]:
                     for hidden_candidates in itertools.combinations(blank.candidates, self.size):
                         subset = set(
-                            p for p, peer in house(b) if (
-                                any((hc in peer.candidates)
-                                    for hc in hidden_candidates)
-                            )
+                            p for p, peer in house(b) if (any((hc in peer.candidates) for hc in hidden_candidates))
                         )
                         subset.add(b)
 
                         if len(subset) == self.size:
                             for s in subset:
                                 before_size = len(puzzle.cells[s].candidates)
-                                puzzle.cells[s].candidates = set(
-                                    hidden_candidates)
+                                puzzle.cells[s].candidates = set(hidden_candidates)
                                 after_size = len(puzzle.cells[s].candidates)
                                 candidate_eliminations += before_size - after_size
 
@@ -64,7 +62,10 @@ class HiddenSingle(HiddenSubset):
         super().__init__(1)
 
 
-"""
-Alias for the [[HiddenSingle]] strategy
-"""
-PinnedDigit = HiddenSingle
+class PinnedDigit(HiddenSingle):
+    """
+    Alias for the [[HiddenSingle]] strategy
+    """
+
+
+__all__ = ("HiddenSubset", "HiddenSingle", "PinnedDigit")

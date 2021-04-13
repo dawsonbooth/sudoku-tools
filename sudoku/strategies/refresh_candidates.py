@@ -25,3 +25,6 @@ class RefreshCandidates(Strategy):
                         cell.candidates.remove(peer.value)
                         candidate_eliminations += 1
         return candidate_eliminations
+
+
+__all__ = "RefreshCandidates"

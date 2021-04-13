@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from ..puzzle import Puzzle, T
 
 
-def essential_strategies(order: int) -> Generator[Strategy]:
+def essential_strategies(order: int) -> Generator[Strategy, None, None]:
     """
     Generator for strategies from simple to complex with a given order
     """
@@ -20,7 +20,6 @@ def essential_strategies(order: int) -> Generator[Strategy]:
 
 
 class StrategySolver(Solver):
-
     def solve(self, puzzle: Puzzle[T]) -> bool:
         """
         Solve the puzzle using strategies
@@ -42,3 +41,6 @@ class StrategySolver(Solver):
                 return False
 
         return True
+
+
+__all__ = ("StrategySolver", "essential_strategies")

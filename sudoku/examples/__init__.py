@@ -1,3 +1,3 @@
 from .boards import boards
 
-__all__ = ['boards']
+__all__ = ["boards"]

@@ -1,2 +1,4 @@
 from .solver import Solver
-from .strategy_solver import StrategySolver, essential_strategies
+from .strategy_solver import StrategySolver
+
+__all__ = ("Solver", "StrategySolver")

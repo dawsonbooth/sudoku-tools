@@ -1,5 +1,5 @@
-from .boards import boards
 from .. import Puzzle
+from .boards import boards
 
 if __name__ == "__main__":
     for i, board in enumerate(boards):

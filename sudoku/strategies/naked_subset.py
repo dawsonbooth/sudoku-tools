@@ -12,6 +12,7 @@ class NakedSubset(Strategy):
     """
     Apply the [Naked Subset](http://sudopedia.enjoysudoku.com/Naked_Subset.html) strategy
     """
+
     __slots__ = ("size",)
 
     def __init__(self, size: int):
@@ -26,6 +27,7 @@ class NakedSubset(Strategy):
         complement_size = puzzle.order - self.size
         if complement_size < self.size:
             from .hidden_subset import HiddenSubset
+
             return HiddenSubset(complement_size)(puzzle)
 
         candidate_eliminations = 0
@@ -33,13 +35,11 @@ class NakedSubset(Strategy):
             if len(blank.candidates) == self.size:
                 for house in [puzzle._row, puzzle._col, puzzle._box]:
                     complement = set(
-                        p for p, peer in house(b) if (
+                        p
+                        for p, peer in house(b)
+                        if (
                             len(peer.candidates) > self.size
-                            or
-                            any(
-                                (pc not in blank.candidates)
-                                for pc in peer.candidates
-                            )
+                            or any((pc not in blank.candidates) for pc in peer.candidates)
                         )
                     )
                     if len(complement) == complement_size:
@@ -98,3 +98,6 @@ class NakedQuad(NakedSubset):
 
     def __init__(self):
         super().__init__(4)
+
+
+__all__ = ("ForcedDigit", "NakedDouble", "NakedQuad", "NakedSingle", "NakedSubset", "NakedTriple")

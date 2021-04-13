@@ -1,3 +1,3 @@
 from .puzzle import Puzzle
-from .solvers import *
-from .strategies import *
+
+__all__ = ("Puzzle",)

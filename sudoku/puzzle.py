@@ -3,14 +3,14 @@ from __future__ import annotations
 import random
 from collections import defaultdict
 from copy import deepcopy
-from typing import Generic, Iterable, List, Set, TypeVar
+from typing import Any, DefaultDict, Generic, List, Sequence, Set, Type, TypeVar
 
 import numpy as np
 
 from .solvers import Solver
 from .solvers.strategy_solver import StrategySolver, essential_strategies
 
-T = TypeVar('T')
+T = TypeVar("T", bound=Any)
 
 
 class Puzzle(Generic[T]):
@@ -29,7 +29,7 @@ class Puzzle(Generic[T]):
         cells (List[Cell]): A list of all the cells in the sudoku puzzle.
     """
 
-    __slots__ = 'order', 'tokens', 'cells'
+    __slots__ = "order", "tokens", "cells"
 
     order: int
     tokens: Tokens
@@ -40,7 +40,6 @@ class Puzzle(Generic[T]):
         A list of the tokens in use in the sudoku puzzle as identified by their integer aliases,
         which are the respective indices of this list.
         """
-        __slots__ = tuple()
 
         def swap(self, i: int, j: int):
             """
@@ -65,14 +64,14 @@ class Puzzle(Generic[T]):
         The class for an individual cell in the sudoku puzzle
 
         Attributes:
-            puzzle (Puzzle[T]): The corresponding sudoku puzzle
+            puzzle (Puzzle): The corresponding sudoku puzzle
             candidates (Set[int]): A set of the cell's remaining candidates
             value (int): The value of the sudoku cell or 0 if it is blank.
         """
 
-        __slots__ = 'puzzle', 'candidates'
+        __slots__ = "puzzle", "candidates"
 
-        puzzle: Puzzle[T]
+        puzzle: Puzzle
         candidates: Set[int]
 
         def __init__(self, puzzle: Puzzle[T], value: int):
@@ -103,7 +102,7 @@ class Puzzle(Generic[T]):
             return len(self.candidates) > 1
 
     def _box(self, index: int):
-        boxWidth = int(self.order ** .5)
+        boxWidth = int(self.order ** 0.5)
         row = index // self.order
         col = index % self.order
         edgeRow = boxWidth * (row // boxWidth)
@@ -135,7 +134,7 @@ class Puzzle(Generic[T]):
                 yield p, self.cells[p]
 
     def _peers(self, index: int):
-        boxWidth = int(self.order ** .5)
+        boxWidth = int(self.order ** 0.5)
         row = index // self.order
         col = index % self.order
         edgeM = boxWidth * (row // boxWidth)
@@ -184,7 +183,7 @@ class Puzzle(Generic[T]):
                         return True
         return False
 
-    def __init__(self, puzzle: Iterable[T], blank: T = None):
+    def __init__(self, puzzle: Sequence[T], blank: T):
         """
         The object can be constructed with any 1-dimensional iterable:
         ```python
@@ -193,15 +192,12 @@ class Puzzle(Generic[T]):
         ```
 
         Args:
-            puzzle (Iterable[T]): An iterable representing a Sudoku puzzle
+            puzzle (Sequence[T]): A sequence representing a Sudoku puzzle
             blank (T): The value used to represent a blank cell
         """
-        if blank is None:
-            blank = type(T)()
-
-        self.order = int(len(puzzle) ** .5)
-        self.tokens = self.Tokens(blank)
-        self.cells = np.empty(len(puzzle), dtype=object)
+        self.order = int(len(puzzle) ** 0.5)
+        self.tokens = self.Tokens([blank])
+        self.cells = np.empty(len(puzzle), dtype=object).tolist()
 
         for i, token in enumerate(puzzle):
             try:
@@ -211,7 +207,7 @@ class Puzzle(Generic[T]):
                 v = len(self.tokens) - 1
             self.cells[i] = self.Cell(self, v)
 
-    def _shift_indices(self, *indices: List[int]) -> None:
+    def _shift_indices(self, *indices: int) -> None:
         tmp = self.cells[indices[0]]
         for i in range(1, len(indices)):
             self.cells[indices[i - 1]] = self.cells[indices[i]]
@@ -259,13 +255,8 @@ class Puzzle(Generic[T]):
             x = n // 2
             y = n - 1
             for i in range(x):
-                for j in range(i, y-i):
-                    self._shift_indices(
-                        n * i + j,
-                        n * (y - j) + i,
-                        n * (y - i) + y - j,
-                        n * j + y - i
-                    )
+                for j in range(i, y - i):
+                    self._shift_indices(n * i + j, n * (y - j) + i, n * (y - i) + y - j, n * j + y - i)
 
             self.rotate(rotations - 1)
 
@@ -312,47 +303,61 @@ class Puzzle(Generic[T]):
         Returns:
             str: A string representation in the Sudoku board
         """
-        return "".join(self.to_1D())
+        return "".join((str(c) for c in self.to_1D()))
 
-    def to_formatted_string(self,
-                            cell_corner="┼",
-                            box_corner="╬",
-                            top_left_corner="╔",
-                            top_right_corner="╗",
-                            bottom_left_corner="╚",
-                            bottom_right_corner="╝",
-                            inner_top_tower_corner="╦",
-                            inner_bottom_tower_corner="╩",
-                            inner_left_floor_corner="╠",
-                            inner_right_floor_corner="╣",
-                            cell_horizontal_border="─",
-                            box_horizontal_border="═",
-                            cell_vertical_border="│",
-                            box_vertical_border="║",
-                            blank=" ") -> str:
+    def to_formatted_string(
+        self,
+        cell_corner="┼",
+        box_corner="╬",
+        top_left_corner="╔",
+        top_right_corner="╗",
+        bottom_left_corner="╚",
+        bottom_right_corner="╝",
+        inner_top_tower_corner="╦",
+        inner_bottom_tower_corner="╩",
+        inner_left_floor_corner="╠",
+        inner_right_floor_corner="╣",
+        cell_horizontal_border="─",
+        box_horizontal_border="═",
+        cell_vertical_border="│",
+        box_vertical_border="║",
+        blank=" ",
+    ) -> str:
         """
         A method for getting back the Sudoku board as a formatted string
 
         Returns:
             str: A formatted string representing the Sudoku board
         """
-        unit = int(self.order ** .5)
+        unit = int(self.order ** 0.5)
         token_width = max([len(str(t)) for t in self.tokens])
 
         cell_width = token_width + 2
         box_width = unit * (cell_width + 1) - 1
 
-        top_border = top_left_corner + box_horizontal_border * \
-            (box_width) + (inner_top_tower_corner + box_horizontal_border *
-                           (box_width)) * (unit - 1) + top_right_corner
-        bottom_border = bottom_left_corner + box_horizontal_border * \
-            (box_width) + (inner_bottom_tower_corner + box_horizontal_border *
-                           (box_width)) * (unit - 1) + bottom_right_corner
-        floor_border = inner_left_floor_corner + box_horizontal_border * \
-            (box_width) + (box_corner + box_horizontal_border *
-                           (box_width)) * (unit - 1) + inner_right_floor_corner
-        bar_border = (box_vertical_border + cell_horizontal_border * (cell_width) + (cell_corner +
-                                                                                     cell_horizontal_border * (cell_width)) * (unit - 1)) * (unit) + box_vertical_border
+        top_border = (
+            top_left_corner
+            + box_horizontal_border * (box_width)
+            + (inner_top_tower_corner + box_horizontal_border * (box_width)) * (unit - 1)
+            + top_right_corner
+        )
+        bottom_border = (
+            bottom_left_corner
+            + box_horizontal_border * (box_width)
+            + (inner_bottom_tower_corner + box_horizontal_border * (box_width)) * (unit - 1)
+            + bottom_right_corner
+        )
+        floor_border = (
+            inner_left_floor_corner
+            + box_horizontal_border * (box_width)
+            + (box_corner + box_horizontal_border * (box_width)) * (unit - 1)
+            + inner_right_floor_corner
+        )
+        bar_border = (
+            box_vertical_border
+            + cell_horizontal_border * (cell_width)
+            + (cell_corner + cell_horizontal_border * (cell_width)) * (unit - 1)
+        ) * (unit) + box_vertical_border
 
         formatted_str = f"{top_border}\n{box_vertical_border} "
         for i, c in enumerate(self.cells):
@@ -381,7 +386,7 @@ class Puzzle(Generic[T]):
         """
         return not any(c.is_blank() for c in self.cells) and not self.has_conflicts()
 
-    def solve(self, solver: Solver = StrategySolver) -> bool:
+    def solve(self, solver: Type[Solver] = StrategySolver) -> bool:
         """
         Solve the puzzle using one of the solvers
 
@@ -414,7 +419,7 @@ class Puzzle(Generic[T]):
         if self.has_conflicts():
             return 1.0
 
-        strategy_eliminations = defaultdict(int)
+        strategy_eliminations: DefaultDict[str, int] = defaultdict(int)
 
         puzzle_copy = deepcopy(self)
 
@@ -440,3 +445,6 @@ class Puzzle(Generic[T]):
             rating += difficulty * (eliminations / max_eliminations)
 
         return rating
+
+
+__all__ = ("Puzzle",)

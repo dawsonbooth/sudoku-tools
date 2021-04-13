@@ -15,7 +15,8 @@ class Strategy:
         difficulty (float): The difficulty rating of the strategy defined with
             respect to eliminating a single candidate
     """
-    __slots__ = 'name', 'difficulty'
+
+    __slots__ = "name", "difficulty"
 
     name: str
     difficulty: float
@@ -35,3 +36,6 @@ class Strategy:
             int: The number of candidates eliminated by the strategy with a
                 single pass over the sudoku puzzle
         """
+
+
+__all__ = ("Strategy",)
